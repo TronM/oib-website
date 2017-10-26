@@ -3,8 +3,9 @@
 import Vue from 'vue';
 import 'jquery';
 import 'bootstrap/dist/js/bootstrap.min';
-import 'bootstrap/dist/css/bootstrap.min.css';
-import './styles/main.css';
+// import 'bootstrap/dist/css/bootstrap.min.css';
+// import './styles/main.less';
+import './main.css';
 import App from './App';
 import router from './router';
 
