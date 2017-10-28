@@ -1,10 +1,9 @@
 <template>
   <div id="app">
-    <!--<img src="./assets/logo.png">-->
     <op-nav></op-nav>
-    <op-header></op-header>
+    <op-header v-if="!isIndexPage"></op-header>
     <router-view/>
-    <op-footer></op-footer>
+    <op-footer v-if="!isIndexPage"></op-footer>
   </div>
 </template>
 
@@ -19,6 +18,11 @@
       opNav,
       opHeader,
       opFooter
+    },
+    computed: {
+      isIndexPage() {
+        return this.$route.name === 'index';
+      }
     }
   };
 </script>
@@ -26,6 +30,8 @@
 <style lang="less" type="text/less">
   /*@import "styles/main.less";*/
   #app {
+    width: 100%;
+    height: 100%;
     /*font-family: 'Avenir', Helvetica, Arial, sans-serif;*/
     /*-webkit-font-smoothing: antialiased;*/
     /*-moz-osx-font-smoothing: grayscale;*/
