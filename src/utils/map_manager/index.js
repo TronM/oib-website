@@ -1,7 +1,11 @@
+let currentAk;
+let mapInstance;
+
 function init(ak) {
   return new Promise((resolve, reject) => {
     window.onload = function () {
-      resolve(window.BMap);
+      mapInstance = window.BMap;
+      resolve(mapInstance);
     };
     const script = document.createElement('script');
     script.type = 'text/javascript';
@@ -10,7 +14,24 @@ function init(ak) {
     document.head.appendChild(script);
   });
 }
+function setAk(ak) {
+  currentAk = ak;
+}
+function getAk() {
+  return currentAk;
+}
+function getMapInstance() {
+  return new Promise((resolve, reject) => {
+    if (mapInstance) {
+      resolve(mapInstance);
+    } else {
+      init(currentAk).then(resolve, reject);
+    }
+  });
+}
 
 export default {
-  init
+  setAk,
+  getAk,
+  getMapInstance
 };

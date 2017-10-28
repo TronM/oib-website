@@ -98,7 +98,8 @@
     },
     mounted() {
       if ($('.map').length > 0) {
-        mapManager.init('rYCKmvW4fAmb1usg3G7YT8nyPmrqrMpy').then((BMap) => {
+        mapManager.setAk('rYCKmvW4fAmb1usg3G7YT8nyPmrqrMpy');
+        mapManager.getMapInstance().then((BMap) => {
           console.log('dddd', BMap);
           const level = 15;
           const map1 = new BMap.Map('map-shanghai');    // 创建Map实例
