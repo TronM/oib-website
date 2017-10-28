@@ -15,5 +15,5 @@ export default [{
   to: { name: 'worksList' }
 }, {
   name: 'CONTACT',
-  to: { name: 'worksList' }
+  to: { name: 'contact' }
 }];

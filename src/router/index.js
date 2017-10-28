@@ -1,7 +1,8 @@
 import Vue from 'vue';
 import Router from 'vue-router';
 import index from '@/pages/index/index';
-import about from '@/pages/about/index';
+import about from '@/pages/about/about';
+import contact from '@/pages/contact/contact';
 import newsList from '@/pages/news/list/list';
 import worksList from '@/pages/works/list/list';
 
@@ -18,6 +19,11 @@ export default new Router({
       path: '/about',
       name: 'about',
       component: about,
+    },
+    {
+      path: '/contact',
+      name: 'contact',
+      component: contact,
     },
     {
       path: '/news',

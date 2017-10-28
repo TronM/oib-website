@@ -27,7 +27,7 @@ module.exports = {
     }
   },
   module: {
-    rules: [ 
+    rules: [
       {
         test: /\.(js|vue)$/,
         loader: 'eslint-loader',
@@ -76,7 +76,7 @@ module.exports = {
         use: [{
           loader: 'expose-loader',
           options: 'jQuery'
-        },{
+        }, {
           loader: 'expose-loader',
           options: '$'
         }]
