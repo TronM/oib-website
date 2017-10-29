@@ -5,6 +5,7 @@ import about from '@/pages/about/about';
 import service from '@/pages/service/service';
 import contact from '@/pages/contact/contact';
 import newsList from '@/pages/news/list/list';
+import newsDetail from '@/pages/news/detail/detail';
 import workList from '@/pages/work/list/list';
 import workDetail from '@/pages/work/detail/detail';
 
@@ -36,6 +37,11 @@ export default new Router({
       path: '/news',
       name: 'news.list',
       component: newsList,
+    },
+    {
+      path: '/news/:id',
+      name: 'news.detail',
+      component: newsDetail,
     },
     {
       path: '/works',

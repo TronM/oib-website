@@ -15,7 +15,7 @@
   </div>
 </template>
 <script type="text/ecmascript-6" lang="babel">
-  import axios from 'axios';
+  import workApi from '@/api/work';
   import InfiniteLoading from 'vue-infinite-loading';
 
   export default {
@@ -88,18 +88,16 @@
         });
       },
       loadMoreData() {
-        return axios.get('http://localhost:9999/oib-api/works', {
-          params: {
-            page: this.currentPage,
-            rows: this.pageSize
-          }
-        }).then(({ data }) => {
+        return workApi.list({
+          page: this.currentPage,
+          rows: this.pageSize
+        }).then((data) => {
           this.currentPage += 1;
-          const { content } = data.data;
+          const { content } = data;
           this.works = this.works.concat(content.map((item, index) =>
              Object.assign({}, item, { index: content.length - index })
           ));
-          return data.data;
+          return data;
         });
       }
     }

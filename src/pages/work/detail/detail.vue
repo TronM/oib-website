@@ -7,7 +7,7 @@
       <div class="row main box-padding">
         <div class="col-xs-2 side-column">
           <h3><span>PROJECT</span></h3>
-          <h4>欧诗漫顶级系列</h4>
+          <h4>{{work.name}}</h4>
         </div>
         <div class="col-xs-8 detail">
           <div class="date"><span>TIME</span>{{work.createdAt | dateFormat}}</div>
