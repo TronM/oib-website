@@ -38,6 +38,8 @@ module.exports = {
     'comma-dangle': 0,
     'quote-props': 0,
     'global-require': 0,
-    'func-names': 0
+    'func-names': 0,
+    'no-mixed-operators': 0,
+    'eqeqeq': 0
   }
 }

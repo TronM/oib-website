@@ -1,24 +1,6 @@
 <template>
   <div class="wrapper about">
-    <swiper :options="swiperOption" ref="mySwiper">
-      <!-- slides -->
-      <swiper-slide>
-        <img src="../../assets/img/about/1.jpg" alt="">
-      </swiper-slide>
-      <swiper-slide>
-        <img src="../../assets/img/about/2.jpg" alt="">
-      </swiper-slide>
-      <swiper-slide>
-        <img src="../../assets/img/about/3.jpg" alt="">
-      </swiper-slide>
-      <swiper-slide>
-        <img src="../../assets/img/about/4.jpg" alt="">
-      </swiper-slide>
-      <!-- Optional controls -->
-      <div class="swiper-pagination"  slot="pagination"></div>
-      <div class="swiper-button-prev" slot="button-prev"></div>
-      <div class="swiper-button-next" slot="button-next"></div>
-    </swiper>
+    <op-swiper :slide-list="slideList"></op-swiper>
     
     <div class="text box-padding"><img src="../../assets/img/about/text.png" alt=""></div>
     
@@ -69,12 +51,17 @@
 </template>
 <script type="text/ecmascript-6" lang="babel">
   import $ from 'jquery';
-  import { swiper, swiperSlide } from 'vue-awesome-swiper';
-  import '@/styles/swiper-3.4.2.min.css';
+  import opSwiper from '@/components/op-swiper';
   
   export default {
     data() {
       return {
+        slideList: [
+          require('../../assets/img/about/1.jpg'),
+          require('../../assets/img/about/2.jpg'),
+          require('../../assets/img/about/3.jpg'),
+          require('../../assets/img/about/4.jpg')
+        ],
         listData: [{
           title: 'INTRODUCTION',
           detailHtml: '<div>detail</div>'
@@ -145,26 +132,10 @@
           title: 'OIB商务总监',
           intro: '曾任知名媒体上市公司市场副总监，参与公司收、并购等媒体大事件，成功谈判与腾讯世博、第一财经年度经济人物颁奖盛典等媒体合作项目，拥有十年时尚、传媒行业工作经验。2014年出任OIB商务总监，成功谈判业内80%品牌客户，与欧莱雅、上美、欧诗漫、相宜本草、百雀羚、伽蓝、珀莱雅、韩后、如涵电商等知名化妆品集团建立了长久战略合作关系。'
         }],
-        swiperOption: {
-          notNextTick: true,
-          loop: true,
-          autoplay: 4000,
-          paginationClickable: true,
-          autoplayDisableOnInteraction: false,
-          speed: 1500,
-          width: $('body').width() < 1440 ? 1440 : $('body').width(),
-          // 如果需要分页器
-          pagination: '.swiper-pagination',
-          // 如果需要前进后退按钮
-          nextButton: '.swiper-button-next',
-          prevButton: '.swiper-button-prev',
-          effect: 'fade'
-        }
       };
     },
     components: {
-      swiper,
-      swiperSlide
+      opSwiper
     },
     mounted() {
       $('.about .list h3')

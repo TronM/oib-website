@@ -1414,7 +1414,7 @@ video {
 }
 .service .category .result-other {
   min-height: 800px;
-  display: none;
+  /*display: none;*/
 }
 .service .category .result-other .result {
   width: 83.33333333%;

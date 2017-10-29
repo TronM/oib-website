@@ -12,7 +12,7 @@ export default [{
   to: { name: 'newsList' }
 }, {
   name: 'SERVICE',
-  to: { name: 'worksList' }
+  to: { name: 'service' }
 }, {
   name: 'CONTACT',
   to: { name: 'contact' }
