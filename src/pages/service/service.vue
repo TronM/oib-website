@@ -30,7 +30,7 @@
       </div>
       <div v-if="shownCategory === 'industry'" class="result-other box-padding">
         <div class="result" v-for="item of industryResult">
-          <h3>{{item.value | formatEnum(industryOptions)}}</h3>
+          <h3>{{item.value | formatEnums(industryOptions)}}</h3>
           <div class="row">
             <div class="col-xs-2" v-for="cItem of item.result">{{cItem.name}}</div>
           </div>
@@ -38,7 +38,7 @@
       </div>
       <div v-if="shownCategory === 'project'" class="result-other box-padding">
         <div class="result" v-for="item of projectResult">
-          <h3>{{item.value | formatEnum(projectOptions)}}</h3>
+          <h3>{{item.value | formatEnums(projectOptions)}}</h3>
           <div class="row">
             <div class="col-xs-2" v-for="cItem of item.result">{{cItem.name}}</div>
           </div>
@@ -50,16 +50,14 @@
 <script type="text/ecmascript-6" lang="babel">
   import $ from 'jquery';
   import opSwiper from '@/components/op-swiper';
+  import formatEnums from '@/filters/enums';
 
   export default {
     components: {
       opSwiper
     },
     filters: {
-      formatEnum(value, enums) {
-        console.log('ooo', value, enums, enums.find(item => item.value == value));
-        return enums.find(item => item.value == value).label;
-      }
+      formatEnums
     },
     data() {
       return {

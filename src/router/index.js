@@ -5,7 +5,8 @@ import about from '@/pages/about/about';
 import service from '@/pages/service/service';
 import contact from '@/pages/contact/contact';
 import newsList from '@/pages/news/list/list';
-import worksList from '@/pages/works/list/list';
+import workList from '@/pages/work/list/list';
+import workDetail from '@/pages/work/detail/detail';
 
 Vue.use(Router);
 
@@ -33,13 +34,18 @@ export default new Router({
     },
     {
       path: '/news',
-      name: 'newsList',
+      name: 'news.list',
       component: newsList,
     },
     {
       path: '/works',
-      name: 'worksList',
-      component: worksList,
+      name: 'work.list',
+      component: workList,
+    },
+    {
+      path: '/work/:id',
+      name: 'work.detail',
+      component: workDetail,
     }
   ]
 });

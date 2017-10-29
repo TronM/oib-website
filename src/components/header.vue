@@ -19,7 +19,7 @@
     computed: {
       activeNav() {
         return navConfig.find(item =>
-          item.to.name === this.$route.name.split('.')[0]
+          item.to.name.split('.')[0] === this.$route.name.split('.')[0]
         ).name;
       }
     },

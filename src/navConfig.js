@@ -3,13 +3,13 @@ export default [{
   to: { name: 'index' }
 }, {
   name: 'WORKS',
-  to: { name: 'worksList' }
+  to: { name: 'work.list' }
 }, {
   name: 'ABOUT',
   to: { name: 'about' }
 }, {
   name: 'NEWS',
-  to: { name: 'newsList' }
+  to: { name: 'news.list' }
 }, {
   name: 'SERVICE',
   to: { name: 'service' }
