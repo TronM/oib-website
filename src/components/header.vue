@@ -4,9 +4,13 @@
       <div></div>
     </div>
     <div class="col-xs-2"><a href="index.html"><img src="../assets/img/main/logo-red.png" alt="" class="logo"></a></div>
-    <div class="col-xs-8" id="page-name">{{activeNav}}</div>
+    <div class="col-xs-8" id="page-name" v-t="activeNav"></div>
     <div class="col-xs-2 corner">
-      <div class="language"><a href="javascript:void(0);" lang="en">EN</a> <span>|</span> <a href="javascript:void(0);" lang="zh_cn">CN</a></div>
+      <div class="language">
+        <a @click="changeLocale('en')">EN</a>
+        <span>|</span>
+        <a @click="changeLocale('zh_cn')">CN</a>
+      </div>
       <img src="../assets/img/icon/nav-red.png" alt="" class="nav-toggle" @click="openNav">
     </div>
   </div>
@@ -26,7 +30,17 @@
     methods: {
       openNav() {
         hub.$emit('open-nav');
+      },
+      changeLocale(lang) {
+        this.$i18n.locale = lang;
+        const { name } = this.$route;
+        this.$router.push({ name, params: { lang } });
       }
     }
   };
 </script>
+<style>
+  .header .corner div a {
+    cursor: pointer;
+  }
+</style>

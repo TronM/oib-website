@@ -2,7 +2,7 @@
   <div class="nav">
     <img src="../assets/img/icon/close.png" alt="关闭" class="close" @click="closeNav()">
     <ul class="link">
-      <li v-for="item of navConfig" @click="closeNav()"><router-link :to="item.to">{{item.name}}</router-link></li>
+      <li v-for="item of navConfig" @click="closeNav()"><router-link :to="item.to" v-t="item.name"></router-link></li>
     </ul>
     <ul class="share">
       <li><a href=""><img src="../assets/img/icon/weixin-red.png" alt=""></a></li>

@@ -1,19 +1,19 @@
 export default [{
-  name: 'HOME',
+  name: 'nav.home',
   to: { name: 'index' }
 }, {
-  name: 'WORKS',
+  name: 'nav.works',
   to: { name: 'work.list' }
 }, {
-  name: 'ABOUT',
+  name: 'nav.about',
   to: { name: 'about' }
 }, {
-  name: 'NEWS',
+  name: 'nav.news',
   to: { name: 'news.list' }
 }, {
-  name: 'SERVICE',
+  name: 'nav.service',
   to: { name: 'service' }
 }, {
-  name: 'CONTACT',
+  name: 'nav.contact',
   to: { name: 'contact' }
 }];

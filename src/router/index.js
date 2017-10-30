@@ -11,47 +11,62 @@ import workDetail from '@/pages/work/detail/detail';
 
 Vue.use(Router);
 
+const root = Vue.component('root', {
+  template: '<router-view></router-view>'
+});
+
 export default new Router({
   routes: [
     {
-      path: '/',
-      name: 'index',
-      component: index,
+      path: '/:lang',
+      name: 'root',
+      component: root,
+      children: [
+        {
+          path: '',
+          name: 'index',
+          component: index,
+        },
+        {
+          path: 'about',
+          name: 'about',
+          component: about,
+        },
+        {
+          path: 'contact',
+          name: 'contact',
+          component: contact,
+        },
+        {
+          path: 'service',
+          name: 'service',
+          component: service,
+        },
+        {
+          path: 'news',
+          name: 'news.list',
+          component: newsList,
+        },
+        {
+          path: 'news/:id',
+          name: 'news.detail',
+          component: newsDetail,
+        },
+        {
+          path: 'works',
+          name: 'work.list',
+          component: workList,
+        },
+        {
+          path: 'work/:id',
+          name: 'work.detail',
+          component: workDetail,
+        }
+      ]
     },
     {
-      path: '/about',
-      name: 'about',
-      component: about,
-    },
-    {
-      path: '/contact',
-      name: 'contact',
-      component: contact,
-    },
-    {
-      path: '/service',
-      name: 'service',
-      component: service,
-    },
-    {
-      path: '/news',
-      name: 'news.list',
-      component: newsList,
-    },
-    {
-      path: '/news/:id',
-      name: 'news.detail',
-      component: newsDetail,
-    },
-    {
-      path: '/works',
-      name: 'work.list',
-      component: workList,
-    },
-    {
-      path: '/work/:id',
-      name: 'work.detail',
-      component: workDetail,
+      path: '*',
+      redirect: { name: 'root', params: { lang: 'zh_cn' } }
     }
   ]
 });

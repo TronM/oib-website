@@ -23,6 +23,9 @@
       isIndexPage() {
         return this.$route.name === 'index';
       }
+    },
+    created() {
+      this.$i18n.locale = this.$route.params.lang;
     }
   };
 </script>
