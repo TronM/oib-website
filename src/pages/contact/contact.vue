@@ -100,7 +100,6 @@
       if ($('.map').length > 0) {
         mapManager.setAk('rYCKmvW4fAmb1usg3G7YT8nyPmrqrMpy');
         mapManager.getMapInstance().then((BMap) => {
-          console.log('dddd', BMap);
           const level = 15;
           const map1 = new BMap.Map('map-shanghai');    // 创建Map实例
           map1.centerAndZoom(new BMap.Point(121.502788, 31.207219), level);  // 初始化地图,设置中心点坐标和地图级别

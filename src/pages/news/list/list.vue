@@ -5,7 +5,7 @@
         <router-link :to="{ name: 'news.detail', params: { id: item.id } }">
           <div class="box">
             <div class="middle">
-              <h3>VOL.{{item.index}} | {{item.title}}</h3>
+              <h3>VOL.{{item.index}} | {{ $t(`news.list[${index}].title`) }}</h3>
               <span>{{item.createdAt | dateFormat}}</span>
             </div>
           </div>
@@ -13,7 +13,7 @@
       </li>
       <infinite-loading @infinite="infiniteHandler">
         <span slot="no-more">
-          There is no more News :(
+          {{ $t('pages.news.no_more_result') }}
         </span>
       </infinite-loading>
     </ul>
@@ -61,11 +61,12 @@
           this.news = this.news.concat(content.map((item, index) =>
              Object.assign({}, item, { index: content.length - index })
           ));
+          this.$i18n.mergeLocaleMessage('zh_cn', { news: { list: this.news } });
+          this.$i18n.mergeLocaleMessage('en', { news: { list: [{ title: 'haha' }] } });
+          console.log('ppp', this.$i18n.getLocaleMessage('zh_cn'));
           return data;
         });
       }
     }
   };
 </script>
-<!--<style>-->
-<!--</style>-->

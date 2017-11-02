@@ -19,7 +19,7 @@ export default new Router({
   routes: [
     {
       path: '/:lang',
-      name: 'root',
+      name: '',
       component: root,
       children: [
         {
