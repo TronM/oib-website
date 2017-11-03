@@ -44,7 +44,7 @@
     methods: {
       infiniteHandler($state) {
         this.loadMoreData().then(({ content, totalElements }) => {
-          if (content && content.length && this.news.length < totalElements) {
+          if (content && content.length && this.news.length <= totalElements) {
             $state.loaded();
             return;
           }
@@ -59,11 +59,16 @@
           this.currentPage += 1;
           const { content } = data;
           this.news = this.news.concat(content.map((item, index) =>
-             Object.assign({}, item, { index: content.length - index })
+            Object.assign({}, item, { index: content.length - index })
           ));
-          this.$i18n.mergeLocaleMessage('zh_cn', { news: { list: this.news } });
-          this.$i18n.mergeLocaleMessage('en', { news: { list: [{ title: 'haha' }] } });
-          console.log('ppp', this.$i18n.getLocaleMessage('zh_cn'));
+          // 设置国际化字符内容
+          ['zh_cn', 'en'].forEach((lang) => {
+            this.$i18n.mergeLocaleMessage(lang, {
+              news: {
+                list: this.news.map(item => Object.assign({}, item, item[lang]))
+              }
+            });
+          });
           return data;
         });
       }

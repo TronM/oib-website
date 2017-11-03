@@ -1,7 +1,7 @@
 <template>
   <swiper :options="swiperOption" ref="mySwiper">
     <!-- slides -->
-    <swiper-slide v-for="item of slideList">
+    <swiper-slide v-for="(item, index) of slideList" :key="index">
       <img :src="item" alt="">
     </swiper-slide>
     <!-- Optional controls -->

@@ -40,6 +40,7 @@ module.exports = {
     'global-require': 0,
     'func-names': 0,
     'no-mixed-operators': 0,
-    'eqeqeq': 0
+    'eqeqeq': 0,
+    'no-alert': 0
   }
 }

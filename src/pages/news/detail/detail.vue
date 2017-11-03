@@ -2,29 +2,29 @@
   <div>
     <div class="wrapper news-detail">
       <div class="kv">
-        <img :src="news.bannerImg" alt="">
+        <img :src="$t('news.detail.bannerImg')" alt="">
       </div>
       <div class="row main box-padding">
         <div class="col-xs-2 side-column">
-          <h3><span>NEWS</span></h3>
-          <h4>{{news.title}}</h4>
+          <h3><span>{{ $t('pages.news.label') }}</span></h3>
+          <h4>{{ $t('news.detail.title') }}</h4>
         </div>
         <div class="col-xs-8 detail">
-          <div class="date"><span>TIME</span>{{news.createdAt | dateFormat}}</div>
-          <div v-html="news.contentHTML"></div>
+          <div class="date"><span>{{ $t('pages.news.time') }}</span>{{news.createdAt | dateFormat}}</div>
+          <div v-html="$t('news.detail.contentHTML')"></div>
           
           <br /><br /><br />
           <p>
-            <strong>链接</strong><br />
+            <strong>{{ $t('pages.news.link') }}</strong><br />
             <strong>OIB念相设计官网</strong><br />
             <a href="http://www.nx-design.net" target="_blank">www.nx-design.net</a>
           </p>
           <br /><br /><br />
           <p>
-            <strong>鸣谢</strong><br />
+            <strong >{{ $t('pages.news.acknowledgments') }}</strong><br />
             <div v-for="item of news.acknowledgments">
-              <strong>聚美丽</strong><br />
-              <a href="http://www.jumeili.cn/News/View/21422.html" target="_blank">http://www.jumeili.cn/News/View/21422.html</a>
+              <strong>{{ $t(`news.detail.acknowledgments[${index}].name`) }}</strong><br />
+              <a :href="$t(`news.detail.acknowledgments[${index}].name`)" target="_blank">{{ $t(`news.detail.acknowledgments[${index}].name`) }}</a>
             </div>
           </p>
         </div>
@@ -108,6 +108,13 @@
       async fetchNews() {
         const { id } = this.$route.params;
         this.news = await newsApi.get(id);
+        ['zh_cn', 'en'].forEach((lang) => {
+          this.$i18n.mergeLocaleMessage(lang, {
+            news: {
+              detail: Object.assign({}, this.news, this.news[lang])
+            }
+          });
+        });
       }
     },
     watch: {

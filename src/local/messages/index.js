@@ -10,6 +10,10 @@ export default {
     },
     pages: {
       news: {
+        label: 'NEWS',
+        time: 'TIME',
+        link: 'LINK',
+        acknowledgments: 'ACKNOWLEDGMENTS',
         no_more_result: 'There is no more News :('
       }
     }
@@ -25,6 +29,10 @@ export default {
     },
     pages: {
       news: {
+        label: '新闻',
+        time: '时间',
+        link: '链接',
+        acknowledgments: '鸣谢',
         no_more_result: '没有更多新闻了！:('
       }
     }
