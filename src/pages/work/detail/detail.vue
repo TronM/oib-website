@@ -2,16 +2,16 @@
   <div>
     <div class="wrapper works-detail">
       <div class="kv">
-        <img :src="work.bannerImg" alt="" data-toggle="modal" data-target="#myModal">
+        <img :src="$t('work.detail.bannerImg')" alt="" data-toggle="modal" data-target="#myModal">
       </div>
       <div class="row main box-padding">
         <div class="col-xs-2 side-column">
-          <h3><span>PROJECT</span></h3>
-          <h4>{{work.name}}</h4>
+          <h3><span>{{ $t('pages.work.project') }}</span></h3>
+          <h4>{{ $t('work.detail.name') }}</h4>
         </div>
         <div class="col-xs-8 detail">
-          <div class="date"><span>TIME</span>{{work.createdAt | dateFormat}}</div>
-          <div v-html="work.contentHTML"></div>
+          <div class="date"><span>{{ $t('pages.public.time') }}</span>{{work.createdAt | dateFormat}}</div>
+          <div v-html="$t('work.detail.contentHTML')"></div>
         </div>
       </div>
     </div>
@@ -25,7 +25,7 @@
           <h4 class="modal-title" id="myModalLabel">视频信息</h4>
         </div>
         <div class="modal-body">
-          <embed :src="work.coverVideoUrl" width="100%" height="100%" allowfullscreen="true" flashvars="isAutoPlay=true" quality="high" allowscriptaccess="always" type="application/x-shockwave-flash">
+          <embed :src="$t('work.detail.coverVideoUrl')" width="100%" height="100%" allowfullscreen="true" flashvars="isAutoPlay=true" quality="high" allowscriptaccess="always" type="application/x-shockwave-flash">
         </div>
       </div>
     </div>
@@ -104,6 +104,13 @@
       async fetchWork() {
         const { id } = this.$route.params;
         this.work = await workApi.get(id);
+        ['zh_cn', 'en'].forEach((lang) => {
+          this.$i18n.mergeLocaleMessage(lang, {
+            work: {
+              detail: Object.assign({}, this.work, this.work[lang])
+            }
+          });
+        });
       }
     },
     watch: {

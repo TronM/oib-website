@@ -9,12 +9,17 @@ export default {
       contact: 'CONTACT'
     },
     pages: {
+      public: {
+        time: 'TIME',
+      },
       news: {
         label: 'NEWS',
-        time: 'TIME',
         link: 'LINK',
         acknowledgments: 'ACKNOWLEDGMENTS',
         no_more_result: 'There is no more News :('
+      },
+      work: {
+        project: 'PROJECT'
       }
     }
   },
@@ -28,12 +33,17 @@ export default {
       contact: '联系我们'
     },
     pages: {
+      public: {
+        time: '时间',
+      },
       news: {
         label: '新闻',
-        time: '时间',
         link: '链接',
         acknowledgments: '鸣谢',
         no_more_result: '没有更多新闻了！:('
+      },
+      work: {
+        project: '项目'
       }
     }
   }
