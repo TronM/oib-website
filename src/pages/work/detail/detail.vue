@@ -12,6 +12,22 @@
         <div class="col-xs-8 detail">
           <div class="date"><span>{{ $t('pages.public.time') }}</span>{{work.createdAt | dateFormat}}</div>
           <div v-html="$t('work.detail.contentHTML')"></div>
+  
+          <div class="row">
+            <div class="col-xs-6">
+              <h4>SERVICE</h4>
+              <br>
+              <div v-for="item of $t('work.detail.serviceNames')">{{ item }}</div>
+            </div>
+            <div class="col-xs-6">
+              <h4>CREDITS</h4>
+              <br>
+              <div class="row" v-for="item of $t('work.detail.credits')">
+                <span>{{ item.job }}</span>
+                <span>{{ item.name }}</span>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -51,12 +67,14 @@
 </template>
 <script type="text/ecmascript-6" lang="babel">
   import workApi from '@/api/work';
+  import serviceTagApi from '@/api/service-tag';
   import dateFormat from '@/filters/date';
   import scrollTop from '@/components/scroll-top';
   
   export default {
     data() {
       return {
+        serviceTagOptions: [],
         work: {
           id: '',
           name: '',
@@ -67,6 +85,7 @@
           coverText: '',
           coverVideoUrl: '',
           enable: 1,
+          serviceNames: [],
           sort: 0
         },
         recommendWorks: [{
@@ -104,7 +123,11 @@
       async fetchWork() {
         const { id } = this.$route.params;
         this.work = await workApi.get(id);
-        ['zh_cn', 'en'].forEach((lang) => {
+        const langKeys = ['label', 'enLabel'];
+        ['zh_cn', 'en'].forEach((lang, index) => {
+          this.work.serviceNames = this.serviceTagOptions
+            .filter(item => this.work.services.indexOf(item.id) > -1)
+            .map(item => item[langKeys[index]]);
           this.$i18n.mergeLocaleMessage(lang, {
             work: {
               detail: Object.assign({}, this.work, this.work[lang])
@@ -118,7 +141,8 @@
         this.fetchWork();
       }
     },
-    created() {
+    async created() {
+      this.serviceTagOptions = (await serviceTagApi.list()).content;
       this.fetchWork();
     }
   };
