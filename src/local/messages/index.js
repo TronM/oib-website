@@ -20,6 +20,11 @@ export default {
       },
       work: {
         project: 'PROJECT'
+      },
+      service: {
+        letter: 'LETTER',
+        industry: 'INDUSTRY',
+        project: 'PROJECT'
       }
     }
   },
@@ -44,6 +49,11 @@ export default {
       },
       work: {
         project: '项目'
+      },
+      service: {
+        letter: '按首字母',
+        industry: '行业类别',
+        project: '服务项目'
       }
     }
   }

@@ -4,8 +4,8 @@
     
     <div class="category">
       <ul>
-        <li :class="{ active: shownCategory === item.value }" class="item" v-for="item of categories" @click="chooseCategory(item)">
-          {{item.label}}
+        <li :class="{ active: shownCategory.value === item.value }" class="item" v-for="item of categories" @click="chooseCategory(item)">
+          {{ $t(item.label) }}
           <div v-if="item.options && item.options.length">
             <span></span>
             <ol>
@@ -14,21 +14,21 @@
           </div>
         </li>
       </ul>
-      <div v-if="shownCategory === 'letter'" class="result-letter">
+      <div v-if="shownCategory.value === categories[0].value" class="result-letter">
         <div class="nav-letter">
           BRANDS<span @click="chooseOption('')">A~Z</span>:
           <span @click="chooseOption(item)" v-for="item of letterList">{{item}}</span>
         </div>
         <div class="result">
-          <div class="row" v-for="item of letterResult">
+          <div class="row" v-for="(item, row) of letterResult">
             <div class="col-xs-offset-1 col-xs-1 letter">{{item.value}}</div>
             <div class="col-xs-10 list">
-              <div class="col-xs-2" v-for="cItem of item.result">{{cItem.name}}</div>
+              <div class="col-xs-2" v-for="(cItem, col) of item.result">{{ cItem.name }}</div>
             </div>
           </div>
         </div>
       </div>
-      <div v-if="shownCategory === 'industry'" class="result-other box-padding">
+      <div v-if="shownCategory.value === categories[1].value" class="result-other box-padding">
         <div class="result" v-for="item of industryResult">
           <h3>{{item.value | formatEnums(industryOptions)}}</h3>
           <div class="row">
@@ -36,7 +36,7 @@
           </div>
         </div>
       </div>
-      <div v-if="shownCategory === 'project'" class="result-other box-padding">
+      <div v-if="shownCategory.value === categories[2].value" class="result-other box-padding">
         <div class="result" v-for="item of projectResult">
           <h3>{{item.value | formatEnums(projectOptions)}}</h3>
           <div class="row">
@@ -49,6 +49,9 @@
 </template>
 <script type="text/ecmascript-6" lang="babel">
   import $ from 'jquery';
+  import customerApi from '@/api/customer';
+  import industryApi from '@/api/industry';
+  import serviceTagApi from '@/api/service-tag';
   import opSwiper from '@/components/op-swiper';
   import formatEnums from '@/filters/enums';
 
@@ -61,7 +64,7 @@
     },
     data() {
       return {
-        shownCategory: 'letter',
+        shownCategory: {},
         slideList: [
           'https://dummyimage.com/800X300/246',
           'https://dummyimage.com/800X300/CCC',
@@ -70,48 +73,19 @@
           'https://dummyimage.com/800X300/00F',
           'https://dummyimage.com/800X300/1F7'
         ],
-        industryOptions: [{
-          value: 1, label: '护肤'
-        }, {
-          value: 2, label: '洗护'
-        }, {
-          value: 3, label: '彩妆'
-        }, {
-          value: 4, label: '母婴'
-        }, {
-          value: 5, label: '香水'
-        }, {
-          value: 6, label: '奢侈品'
-        }, {
-          value: 7, label: '酒'
-        }, {
-          value: 8, label: '饮料'
-        }, {
-          value: 9, label: '食品'
-        }],
-        projectOptions: [{
-          value: 1, label: '策略'
-        }, {
-          value: 2, label: '设计'
-        }, {
-          value: 3, label: '全案咨询'
-        }, {
-          value: 4, label: '供应链'
-        }, {
-          value: 5, label: '数字传播'
-        }],
-        categories: [{
-          label: '按首字母',
-          value: 'letter'
-        }, {
-          label: '行业类别',
-          value: 'industry',
-          options: []
-        }, {
-          label: '服务项目',
-          value: 'project',
-          options: []
-        }],
+        industryData: [],
+        projectData: [],
+//        projectOptions: [{
+//          value: 1, label: '策略'
+//        }, {
+//          value: 2, label: '设计'
+//        }, {
+//          value: 3, label: '全案咨询'
+//        }, {
+//          value: 4, label: '供应链'
+//        }, {
+//          value: 5, label: '数字传播'
+//        }],
         serviceList: [{
           name: 'AFU 阿芙',
           letter: 'A',
@@ -193,41 +167,82 @@
           industry: '2',
           project: '3'
         }],
-        letterList: ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'Y', 'Z', '0~9'],
-        selectedLetter: '',
-        selectedIndustry: '',
-        selectedProject: ''
+        letterList: ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'Y', 'Z', '0~9']
       };
     },
     computed: {
       letterResult() {
-        return this.selectedLetter
-          && this.letterCustomer.filter(item => item.value == this.selectedLetter)
+        return this.shownCategory.seleted
+          && this.letterCustomer.filter(item => item.value == this.shownCategory.seleted)
           || this.letterCustomer;
       },
       industryResult() {
-        return this.selectedIndustry
-          && this.industryCustomer.filter(item => item.value == this.selectedIndustry)
+        return this.shownCategory.seleted
+          && this.industryCustomer.filter(item => item.value == this.shownCategory.seleted)
           || this.industryCustomer;
       },
       projectResult() {
-        return this.selectedProject
-          && this.projectCustomer.filter(item => item.value == this.selectedProject)
+        return this.shownCategory.seleted
+          && this.projectCustomer.filter(item => item.value == this.shownCategory.seleted)
           || this.projectCustomer;
       },
       letterCustomer() {
-        return this.formatResult(this.serviceList, 'letter');
+        return this.formatResult(this.serviceList, 'initial');
       },
       industryCustomer() {
-        return this.formatResult(this.serviceList, 'industry');
+        return this.formatResult(this.serviceList, 'category');
       },
       projectCustomer() {
-        return this.formatResult(this.serviceList, 'project');
+        return this.formatResult(this.serviceList, 'serviceTags');
+      },
+      industryOptions() {
+        const langKeys = ['label', 'enLabel'];
+        ['zh_cn', 'en'].forEach((lang, index) => {
+          this.$i18n.mergeLocaleMessage(lang, {
+            service: {
+              industryOptions: this.industryData.map(item =>
+                ({ value: item.id, label: item[langKeys[index]] }))
+            }
+          });
+        });
+        return this.$t('service.industryOptions');
+      },
+      projectOptions() {
+        const langKeys = ['label', 'enLabel'];
+        ['zh_cn', 'en'].forEach((lang, index) => {
+          this.$i18n.mergeLocaleMessage(lang, {
+            service: {
+              projectOptions: this.projectData.map(item =>
+                ({ value: item.id, label: item[langKeys[index]] }))
+            }
+          });
+        });
+        return this.$t('service.projectOptions');
+      },
+      categories() {
+        return [{
+          label: 'pages.service.letter',
+          value: 'letter',
+          seleted: ''
+        }, {
+          label: 'pages.service.industry',
+          value: 'industry',
+          options: this.industryOptions,
+          seleted: ''
+        }, {
+          label: 'pages.service.project',
+          value: 'project',
+          options: this.projectOptions,
+          seleted: ''
+        }];
       }
     },
-    created() {
-      this.categories[1].options = this.industryOptions;
-      this.categories[2].options = this.projectOptions;
+    async created() {
+      this.serviceList = (await customerApi.list()).content;
+      this.industryData = (await industryApi.list()).content;
+      this.projectData = (await serviceTagApi.list()).content;
+
+      this.shownCategory = this.categories[0];
     },
     mounted() {
       $('.service .category .item')
@@ -240,31 +255,39 @@
     },
     methods: {
       chooseCategory(item) {
-        this.shownCategory = item.value;
-        this.selectedLetter = '';
-        this.selectedIndustry = '';
-        this.selectedProject = '';
+        this.shownCategory = Object.assign({}, item);
       },
       chooseOption(option) {
         this.$nextTick(() => {
-          const map = {
-            'letter': 'selectedLetter',
-            'industry': 'selectedIndustry',
-            'project': 'selectedProject'
-          };
-          this[map[this.shownCategory]] = option.value || option;
+          this.shownCategory.seleted = option.value || option;
         });
       },
       formatResult(serviceList, mapKey) {
         const map = {};
         serviceList.forEach((item) => {
-          map[item[mapKey]] = map[item[mapKey]] || [];
-          map[item[mapKey]].push(item);
+          const key = item[mapKey];
+          if (Array.isArray(key)) {
+            key.forEach((keyItem) => {
+              map[keyItem] = map[keyItem] || [];
+              map[keyItem].push(item);
+            });
+          } else {
+            map[key] = map[key] || [];
+            map[key].push(item);
+          }
         });
-        return Object.keys(map).map(key => ({
-          value: key,
-          result: map[key]
-        }));
+        // 设置国际化字符内容
+        ['zh_cn', 'en'].forEach((lang) => {
+          this.$i18n.mergeLocaleMessage(lang, {
+            service: {
+              list: Object.keys(map).map(key => ({
+                value: key,
+                result: map[key].map(item => Object.assign({}, item, item[lang]))
+              }))
+            }
+          });
+        });
+        return this.$t('service.list');
       }
     }
   };
