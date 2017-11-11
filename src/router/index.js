@@ -66,7 +66,7 @@ export default new Router({
     },
     {
       path: '*',
-      redirect: { name: 'root', params: { lang: 'zh_cn' } }
+      redirect: { name: 'index', params: { lang: 'zh_cn' } }
     }
   ]
 });

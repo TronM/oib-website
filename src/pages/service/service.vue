@@ -75,17 +75,6 @@
         ],
         industryData: [],
         projectData: [],
-//        projectOptions: [{
-//          value: 1, label: '策略'
-//        }, {
-//          value: 2, label: '设计'
-//        }, {
-//          value: 3, label: '全案咨询'
-//        }, {
-//          value: 4, label: '供应链'
-//        }, {
-//          value: 5, label: '数字传播'
-//        }],
         serviceList: [{
           name: 'AFU 阿芙',
           letter: 'A',
@@ -241,6 +230,7 @@
       this.serviceList = (await customerApi.list()).content;
       this.industryData = (await industryApi.list()).content;
       this.projectData = (await serviceTagApi.list()).content;
+      this.slideList = (await customerApi.getSliders()).sliders;
 
       this.shownCategory = this.categories[0];
     },

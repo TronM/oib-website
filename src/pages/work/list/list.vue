@@ -3,7 +3,7 @@
     <div class="row" v-for="(row, rowIndex) of worksCollection">
       <div class="col-xs-4" v-for="(item, colIndex) of row">
         <router-link :to="{ name: 'work.detail', params: { id: item.id } }">
-          <img :src="$t(`works.list[${3 * rowIndex + colIndex}].cover`)" alt="">
+          <img :src="$t(`works.list[${3 * rowIndex + colIndex}].cover`) || 'https://dummyimage.com/800X450/F00'" alt="">
           <div class="hover">
             <h4>{{ $t(`works.list[${3 * rowIndex + colIndex}].name`) }}</h4>
             <p>{{ $t(`works.list[${3 * rowIndex + colIndex}].coverText`) }}</p>
