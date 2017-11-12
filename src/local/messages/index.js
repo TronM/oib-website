@@ -25,6 +25,18 @@ export default {
         letter: 'LETTER',
         industry: 'INDUSTRY',
         project: 'PROJECT'
+      },
+      about: {
+        introduction: 'INTRODUCTION',
+        service: 'SERVICE',
+        composition: 'COMPOSITION',
+        parter: 'PARTNER',
+        philosophy: 'PHILOSOPHY',
+        clients: 'CLIENTS',
+        ip: 'INTELLECTUAL PROPERTY',
+        vision: 'VISION',
+        awards: 'AWARDS',
+        people: 'PEOPLE'
       }
     }
   },
@@ -54,6 +66,18 @@ export default {
         letter: '按首字母',
         industry: '行业类别',
         project: '服务项目'
+      },
+      about: {
+        introduction: '公司简介',
+        service: '业务板块',
+        composition: '公司组织',
+        parter: '合作伙伴',
+        philosophy: '服务理念',
+        clients: '服务客户',
+        ip: '独立IP',
+        vision: '公司愿景',
+        awards: '奖项',
+        people: '人'
       }
     }
   }

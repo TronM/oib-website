@@ -30,17 +30,16 @@
     
     <ul class="list">
       <li v-for="item of listData">
-        <h3>{{item.title}}</h3>
-        <div v-html="item.detailHtml"></div>
+        <h3>{{ $t(item.title) }}</h3>
+        <div v-html="$t(item.detailHtml)"></div>
       </li>
       <li>
-        <h3>PEOPLE</h3>
+        <h3>{{ $t('pages.about.people') }}</h3>
         <div class="people">
           <div class="row" v-for="item of peopleList">
             <div class="col-xs-5 photo"><img :src="item.photoUrl" alt=""></div>
             <div class="col-xs-7 info">
               <h4>{{item.name}}<span>{{item.title}}</span></h4>
-              
               <p>{{item.intro}}</p>
             </div>
           </div>
@@ -51,6 +50,7 @@
 </template>
 <script type="text/ecmascript-6" lang="babel">
   import $ from 'jquery';
+  import aboutApi from '@/api/about';
   import opSwiper from '@/components/op-swiper';
   
   export default {
@@ -62,14 +62,18 @@
           require('../../assets/img/about/3.jpg'),
           require('../../assets/img/about/4.jpg')
         ],
+        about: {},
         listData: [{
-          title: 'INTRODUCTION',
+          key: 'introductionHTML',
+          title: 'pages.about.introduction',
           detailHtml: '<div>detail</div>'
         }, {
-          title: 'SERVICE',
+          key: 'serviceHTML',
+          title: 'pages.about.service',
           detailHtml: '<div>detail</div>'
         }, {
-          title: 'COMPOSITION',
+          key: 'compositionHTML',
+          title: 'pages.about.composition',
           detailHtml: `<div>
           OIB.CHINA总部位于上海浦西世博园区超过1200平米的OIB时尚创新中心，在广州拥有品牌策略与创意供应链中心，在日本神户拥有产品研发中心。
           
@@ -83,22 +87,28 @@
         
         </div>`
         }, {
-          title: 'PARTNER',
+          key: 'parterHTML',
+          title: 'pages.about.parter',
           detailHtml: '<div>detail</div>'
         }, {
-          title: 'PHILOSOPHY',
+          key: 'philosophyHTML',
+          title: 'pages.about.philosophy',
           detailHtml: '<div>detail</div>'
         }, {
-          title: 'CLIENTS',
+          key: 'clientsHTML',
+          title: 'pages.about.clients',
           detailHtml: '<div>detail</div>'
         }, {
-          title: 'INTELLECTUAL PROPERTY',
+          key: 'ipHTML',
+          title: 'pages.about.ip',
           detailHtml: '<div>detail</div>'
         }, {
-          title: 'VISION',
+          key: 'visionHTML',
+          title: 'pages.about.vision',
           detailHtml: '<div>detail</div>'
         }, {
-          title: 'AWARDS',
+          key: 'awards',
+          title: 'pages.about.awards',
           detailHtml: '<div>detail</div>'
         }],
         peopleList: [{
@@ -131,7 +141,7 @@
           name: '魏琳凌',
           title: 'OIB商务总监',
           intro: '曾任知名媒体上市公司市场副总监，参与公司收、并购等媒体大事件，成功谈判与腾讯世博、第一财经年度经济人物颁奖盛典等媒体合作项目，拥有十年时尚、传媒行业工作经验。2014年出任OIB商务总监，成功谈判业内80%品牌客户，与欧莱雅、上美、欧诗漫、相宜本草、百雀羚、伽蓝、珀莱雅、韩后、如涵电商等知名化妆品集团建立了长久战略合作关系。'
-        }],
+        }]
       };
     },
     components: {
@@ -148,6 +158,19 @@
         .on('click', function () {
           $(this).next().toggle();
         });
+    },
+    async created() {
+      this.about = await aboutApi.get();
+      this.listData = this.listData.map(item => Object.assign(item, {
+        detailHtml: `about.detail.${item.key}`
+      }));
+      ['zh_cn', 'en'].forEach((lang) => {
+        this.$i18n.mergeLocaleMessage(lang, {
+          about: {
+            detail: Object.assign({}, this.about, this.about[lang])
+          }
+        });
+      });
     }
   };
 </script>
