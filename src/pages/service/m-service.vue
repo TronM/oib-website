@@ -1,0 +1,366 @@
+<template>
+  <div class="wrapper service">
+    <op-swiper :slide-list="slideList"></op-swiper>
+
+    <div class="category">
+      <ul>
+        <li class="item letter active">按首字母</li>
+        <li class="item industry">
+          行业类别<span></span>
+          <ol>
+              <li>护肤</li>
+              <li>洗护</li>
+              <li>彩妆</li>
+              <li>母婴</li>
+              <li>香水</li>
+              <li>奢侈品</li>
+              <li>酒</li>
+              <li>饮料</li>
+              <li>食品</li>
+          </ol>
+        </li>
+        <li class="item project">
+          服务项目<span></span>
+          <ol>
+              <li>策略</li>
+              <li>设计</li>
+              <li>全案咨询</li>
+              <li>供应链</li>
+              <li>数字传播</li>
+          </ol>
+        </li>
+      </ul>
+      <div class="result-letter box-padding clearfix">
+        <div class="left-col">
+          <div class="result">
+            <div class="row" id="A">
+              <div class="col-xs-1 letter">A</div>
+              <div class="col-xs-offset-1 col-xs-10 list">
+                <div class="col-xs-12">AFU 阿芙</div>
+                <div class="col-xs-12">AI &nbsp; MI 瑷媄</div>
+                <div class="col-xs-12">AVON 雅芳 <span></span></div>
+              </div>
+            </div>
+            <div class="row" id="B">
+              <div class="col-xs-1 letter">B</div>
+              <div class="col-xs-offset-1 col-xs-10 list">
+                <div class="col-xs-12">BABY ELEPHANT 红色小象</div>
+                <div class="col-xs-12">BEAUTY LAND 必优兰</div>
+                <div class="col-xs-12">BEAUTY PLUS 美丽加芬</div>
+                <div class="col-xs-12">BIOFILA 贝肤泉</div>
+                <div class="col-xs-12">BLUE BLUE 海蓝蓝</div>
+                <div class="col-xs-12">BOURJOIS 妙巴黎</div>
+              </div>
+            </div>
+            <div class="row" id="C">
+              <div class="col-xs-1 letter">C</div>
+              <div class="col-xs-offset-1 col-xs-10 list">
+                <div class="col-xs-12">CALIBIO 嘉莉比奥</div>
+                <div class="col-xs-12">CAMENAE 嘉美乐</div>
+                <div class="col-xs-12">CBE 上海美博会</div>
+                <div class="col-xs-12">CHANDO 自然堂</div>
+                <div class="col-xs-12">CMM郑明明</div>
+                <div class="col-xs-12">COGI 高姿</div>
+                <div class="col-xs-12">COMETEA</div>
+              </div>
+            </div>
+            <div class="row" id="D">
+              <div class="col-xs-1 letter">D</div>
+              <div class="col-xs-offset-1 col-xs-10 list">
+                <div class="col-xs-12">DANZ 丹姿</div>
+              </div>
+            </div>
+            <div class="row" id="E">
+              <div class="col-xs-1 letter">E</div>
+              <div class="col-xs-offset-1 col-xs-10 list">
+                <div class="col-xs-12">E•LITE SCHOOL</div> 
+                <div class="col-xs-12">ELIS 怡丽</div> 
+                <div class="col-xs-12">Elsker 嗳呵</div>
+                <div class="col-xs-12">EUHO 优禾生活</div>
+              </div>
+            </div>
+            <div class="row" id="F">
+              <div class="col-xs-1 letter">F</div>
+              <div class="col-xs-offset-1 col-xs-10 list">
+                <div class="col-xs-12">FANXISHOP 凡茜</div>
+                <div class="col-xs-12">FCIFLA 一花也</div>
+                <div class="col-xs-12">FERRERO ROCHER 费列罗</div>
+                <div class="col-xs-12">FISHE 绯囍</div>
+                <div class="col-xs-12">FLORAL GIRL 初麦青汁初颜•若水生花</div>
+                <div class="col-xs-12">FORTRESS 梵萃</div>
+                <div class="col-xs-12">FRANIC 法兰琳卡</div>
+                <div class="col-xs-12">FREVENT LOVER 炫爱</div>                            
+              </div>
+            </div>
+            <div class="row" id="G">
+              <div class="col-xs-1 letter">G</div>
+              <div class="col-xs-offset-1 col-xs-10 list">
+                <div class="col-xs-12">GNPEARL 京润珍珠</div>
+                <div class="col-xs-12">GOLD ONE 金甲虫</div> 
+                <div class="col-xs-12">GOPAS 高柏诗</div>
+                <div class="col-xs-12">GEONLY金欧莱</div>
+              </div>
+            </div>
+            <div class="row" id="H">
+              <div class="col-xs-1 letter">H</div>
+              <div class="col-xs-offset-1 col-xs-10 list">
+                <div class="col-xs-12">HANHOO B-KOL 韩后达人面膜</div>
+                <div class="col-xs-12">HANHOO 韩后</div>
+                <div class="col-xs-12">HANS 汉香</div>
+                <div class="col-xs-12">HERBE KISS 草之语</div>
+                <div class="col-xs-12">HI MIR 韩妙</div>
+                <div class="col-xs-12">HIFACE 韩粉世家</div>
+                <div class="col-xs-12">HOLA KORA 咔拉宝宝</div>
+              </div>
+            </div>
+            <div class="row" id="I">
+              <div class="col-xs-1 letter">I</div>
+              <div class="col-xs-offset-1 col-xs-10 list">
+                <div class="col-xs-12">ICARLUS 伊卡露诗</div>
+                <div class="col-xs-12">INNISFREE 悦诗风吟</div>
+                <div class="col-xs-12">INOHERB 相宜本草</div> 
+              </div>
+            </div>
+            <div class="row" id="J">
+              <div class="col-xs-1 letter">J</div>
+              <div class="col-xs-offset-1 col-xs-10 list">
+                <div class="col-xs-12">JKO 金蔻</div>
+                <div class="col-xs-12">Johnson &nbsp; Johnson 强生</div>
+                <div class="col-xs-12">JOLIANE乔里安</div>
+                <div class="col-xs-12">JVR 杰威尔</div> 
+              </div>
+            </div>
+            <div class="row" id="K">
+              <div class="col-xs-1 letter">K</div>
+              <div class="col-xs-offset-1 col-xs-10 list">
+                <div class="col-xs-12">KANS 韩束</div>
+                <div class="col-xs-12">KISS kids小甜甜</div>
+                <div class="col-xs-12">KOTTE 高倩</div>
+              </div>
+            </div>
+            <div class="row" id="L">
+              <div class="col-xs-1 letter">L</div>
+              <div class="col-xs-offset-1 col-xs-10 list">
+                <div class="col-xs-12">La flutose 菲乐</div>
+                <div class="col-xs-12">Lady care 洁婷</div>
+                <div class="col-xs-12">LEELAN 俪兰</div>
+                <div class="col-xs-12">LONGRICH隆力奇</div>
+              </div>
+            </div>
+            <div class="row" id="M">
+              <div class="col-xs-1 letter">M</div>
+              <div class="col-xs-offset-1 col-xs-10 list">
+                <div class="col-xs-12">Momface 亲润</div>
+                <div class="col-xs-12">Magic fresh face 魔力鲜颜</div>
+                <div class="col-xs-12">MENtholatum 曼秀雷敦男士</div>
+                <div class="col-xs-12">MAX FACTOR 蜜丝佛陀</div>
+                <div class="col-xs-12">MANUKA BEE 小蜜坊</div>
+                <div class="col-xs-12">MARIE DALGAR 玛丽黛佳</div>
+                <div class="col-xs-12">MAYSU 美素</div>
+                <div class="col-xs-12">MEIFUBAO 美肤宝</div>
+                <div class="col-xs-12">MILPLUS 敏家</div>
+                <div class="col-xs-12">MOMFACE 亲润</div>
+                <div class="col-xs-12">Moshi Moshi 魔芋君</div>
+              </div>
+            </div>
+            <div class="row" id="N">
+              <div class="col-xs-1 letter">N</div>
+              <div class="col-xs-offset-1 col-xs-10 list">
+                <div class="col-xs-12">NAVNAS 拿云拿雪</div>
+                <div class="col-xs-12">NOCEA 莱妮雅</div>
+              </div>
+            </div>
+            <div class="row" id="O">
+              <div class="col-xs-1 letter">O</div>
+              <div class="col-xs-offset-1 col-xs-10 list">
+                <div class="col-xs-12">OISROSE 欧瑞希</div>
+                <div class="col-xs-12">OLAY 玉兰油</div>
+                <div class="col-xs-12">ONE LEAF 一叶子</div> 
+                <div class="col-xs-12">OPPO</div>
+                <div class="col-xs-12">OSM 欧诗漫</div>
+              </div>
+            </div>
+            <div class="row" id="P">
+              <div class="col-xs-1 letter">P</div>
+              <div class="col-xs-offset-1 col-xs-10 list">
+                <div class="col-xs-12">P&nbsp;G 宝洁</div>
+                <div class="col-xs-12">PAMPERS 帮宝适</div> 
+                <div class="col-xs-12">PATs 柏氏</div>
+                <div class="col-xs-12">PECHOIN 百雀羚</div> 
+                <div class="col-xs-12">PECHOIN•N3O 百雀羚•北纬30度</div> 
+                <div class="col-xs-12">PECHOIN•SANSHENG 百雀羚•三生花</div>
+                <div class="col-xs-12">Peonycare 珍妍</div>
+                <div class="col-xs-12">PERFECT WATER 水完美</div>
+                <div class="col-xs-12">PLANTS DIARY 植物日记</div>
+                <div class="col-xs-12">POLYSSA 保丽鲜</div>
+                <div class="col-xs-12">PRAMY 柏瑞美</div>
+                <div class="col-xs-12">PROYA 珀莱雅</div>
+              </div>
+            </div>
+            <div class="row" id="R">
+              <div class="col-xs-1 letter">R</div>
+              <div class="col-xs-offset-1 col-xs-10 list">
+                <div class="col-xs-12">RAINBOW BABY 七色蝌蚪</div>
+                <div class="col-xs-12">RELLET 颐莲</div>
+                <div class="col-xs-12">REMUST 芮美丝</div>
+                <div class="col-xs-12">RIBECS 伊贝诗</div>
+                <div class="col-xs-12">RIO RITA 丽娃丽妲</div>
+                <div class="col-xs-12">RUHNN 如涵</div>
+              </div>
+            </div>
+            <div class="row" id="S">
+              <div class="col-xs-1 letter">S</div>
+              <div class="col-xs-offset-1 col-xs-10 list">
+                <div class="col-xs-12">SALOME 莎乐美</div>
+                <div class="col-xs-12">SAVOLHERB 章华汉草</div>
+                <div class="col-xs-12">SAYCLO 时克</div>
+                <div class="col-xs-12">SERKURO 九美子</div>
+                <div class="col-xs-12">SOFTTO 索芙特</div>
+                <div class="col-xs-12">SOVYA 索薇娅</div>
+              </div>
+            </div>
+            <div class="row" id="T">
+              <div class="col-xs-1 letter">T</div>
+              <div class="col-xs-offset-1 col-xs-10 list">
+                <div class="col-xs-12">TAUTROPFEN 天露芬</div>
+                <div class="col-xs-12">Tea Garden 茶颜工坊</div>
+                <div class="col-xs-12">THOUSAND HERBALS 仟佰草</div>
+                <div class="col-xs-12">TRULY初灵</div> 
+                <div class="col-xs-12">TST 庭秘密</div>                            
+              </div>
+            </div>
+            <div class="row" id="U">
+              <div class="col-xs-1 letter">U</div>
+              <div class="col-xs-offset-1 col-xs-10 list">
+                <div class="col-xs-12">ULAX 悠悦</div>
+                <div class="col-xs-12">UONI 优妮</div>
+              </div>
+            </div>
+            <div class="row" id="V">
+              <div class="col-xs-1 letter">V</div>
+              <div class="col-xs-offset-1 col-xs-10 list">
+                <div class="col-xs-12">VEIBAO 荟宝</div>
+              </div>
+            </div>
+            <div class="row" id="W">
+              <div class="col-xs-1 letter">W</div>
+              <div class="col-xs-offset-1 col-xs-10 list">
+                <div class="col-xs-12">WETCODE 水密码</div>
+                <div class="col-xs-12">Whisper 护舒宝</div>
+                <div class="col-xs-12">WINONA 薇诺娜</div>
+                <div class="col-xs-12">WSMALL 万色城</div>
+                <div class="col-xs-12">WZUN 吾尊</div>
+              </div>
+            </div>
+            <div class="row" id="Y">
+              <div class="col-xs-1 letter">Y</div>
+              <div class="col-xs-offset-1 col-xs-10 list">
+                <div class="col-xs-12">YESIC YESTAR 艺星</div>
+                <div class="col-xs-12">YOGAFACE乐颜</div>
+                <div class="col-xs-12">YOURHOME 摇红</div>
+                <div class="col-xs-12">YUESAI 羽西</div>
+              </div>
+            </div>
+            <div class="row" id="Z">
+              <div class="col-xs-1 letter">Z</div>
+              <div class="col-xs-offset-1 col-xs-10 list">
+                <div class="col-xs-12">ZME 臻美季节</div>
+              </div>
+            </div>
+            <div class="row" id="AA">
+              <div class="col-xs-1 letter">#</div>
+              <div class="col-xs-offset-1 col-xs-10 list">
+                <div class="col-xs-12">萃舍</div>
+                <div class="col-xs-12">痘痘康</div>
+                <div class="col-xs-12">靓妃</div>
+                <div class="col-xs-12">萌店</div>
+                <div class="col-xs-12">名门闺秀</div>
+                <div class="col-xs-12">青蛙王子</div> 
+                <div class="col-xs-12">瞳话</div>
+                <div class="col-xs-12">喜鹊涂装</div>
+                <div class="col-xs-12">植然方适</div>
+                <div class="col-xs-12">7SECS 七秒</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="right-col">
+          <div class="nav-letter">
+            <span><a href="#A">A</a></span><span><a href="#B">B</a></span><span><a href="#C">C</a></span><span><a href="#D">D</a></span><span><a href="#E">E</a></span><span><a href="#F">F</a></span><span><a href="#G">G</a></span><span><a href="#H">H</a></span><span><a href="#I">I</a></span><span><a href="#J">J</a></span><span><a href="#K">K</a></span><span><a href="#L">L</a></span><span><a href="#M">M</a></span><span><a href="#N">N</a></span><span><a href="#O">O</a></span><span><a href="#P">P</a></span><span><a href="#Q">Q</a></span><span><a href="#R">R</a></span><span><a href="#S">S</a></span><span><a href="#T">T</a></span><span><a href="#U">U</a></span><span><a href="#V">V</a></span><span><a href="#W">W</a></span><span><a href="#X">X</a></span><span><a href="#Y">Y</a></span><span><a href="#Z">Z</a></span><span><a href="#AA">#</a></span>
+          </div>
+        </div>
+      </div>
+      <div class="result-other box-padding">                
+        <div class="result">
+          <h3>策略</h3>
+
+          <div class="row">
+              <div class="col-xs-12">AVON 雅芳</div>
+              <div class="col-xs-12">AVON 雅芳</div>
+              <div class="col-xs-12">AVON 雅芳</div>
+              <div class="col-xs-12">AVON 雅芳</div>
+              <div class="col-xs-12">AVON 雅芳</div>
+              <div class="col-xs-12">AVON 雅芳</div>
+              <div class="col-xs-12">AVON 雅芳</div>
+              <div class="col-xs-12">AVON 雅芳</div>
+              <div class="col-xs-12">AVON 雅芳</div>
+              <div class="col-xs-12">AVON 雅芳</div>
+              <div class="col-xs-12">AVON 雅芳</div>
+              <div class="col-xs-12">AVON 雅芳</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</template>
+<script type="text/ecmascript-6" lang="babel">
+  import $ from 'jquery';
+//   import customerApi from '@/api/customer';
+//   import industryApi from '@/api/industry';
+//   import serviceTagApi from '@/api/service-tag';
+  import opSwiper from '@/components/op-swiper';
+//   import formatEnums from '@/filters/enums';
+
+  export default {
+    components: {
+      opSwiper
+    },
+    data() {
+      return {
+        slideList: [
+          'https://dummyimage.com/800X450/246',
+          'https://dummyimage.com/800X450/CCC',
+          'https://dummyimage.com/800X450/FF0',
+          'https://dummyimage.com/800X450/0CC',
+          'https://dummyimage.com/800X450/00F',
+          'https://dummyimage.com/800X450/1F7'
+        ],
+      };
+    },
+    mounted() {
+      // $('.service .category .item')
+      //   .on('click', function () {
+      //     // $(this).toggleClass('hover, active');
+      //   });
+
+      $('.service .category .letter').on('click', function () {
+        $('.service .result-letter').show();
+        $('.service .result-other').hide();
+
+        $('.service .category .item').removeClass('active');
+        $(this).addClass('active');
+      });
+
+      $('.service .category .industry, .service .category .project').on('click', function () {
+        $('.service .result-letter').hide();
+        $('.service .result-other').show();
+        $('.service .category .item').removeClass('active hover');
+        $(this).addClass('active');
+      });
+
+      $('.nav-letter').pin({ containerSelector: '.result-letter', padding: { top: 80 } });
+
+      $('.right-col').onePageNav({ offset: -80 });
+    }
+  };
+</script>

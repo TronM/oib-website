@@ -6,10 +6,18 @@ import 'jquery';
 import 'bootstrap/dist/js/bootstrap.min';
 // import 'bootstrap/dist/css/bootstrap.min.css';
 // import './styles/main.less';
-import './main.css';
+// import './main.css';
 import App from './App';
 import router from './router';
 import messages from './local/messages';
+
+window.isPC = !/Android|webOS|iPhone|iPod|BlackBerry/i.test(navigator.userAgent);
+
+if (window.isPC) {
+  require('./styles/pc-main.less');
+} else {
+  require('./styles/mobile-main.less');
+}
 
 Vue.config.productionTip = false;
 Vue.use(VueI18n);

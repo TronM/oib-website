@@ -1,6 +1,8 @@
 <template>
   <div class="wrapper index">
-    <video src="http://oib.oss-cn-beijing.aliyuncs.com/web/bg.mp4" autoplay="autoplay" loop="loop" @click="isVideoShown = false" v-if="isVideoShown"></video>
+    <div class="video">
+      <video src="http://oib.oss-cn-beijing.aliyuncs.com/web/bg.mp4" autoplay="autoplay" loop="loop" @click="isVideoShown = false" v-if="isVideoShown"></video>
+    </div>
     <!-- <video src="../../assets/video/bg.mp4" autoplay="autoplay" loop="loop"></video> -->
     <div class="main box-padding">
       <div class="col-xs-2"><a href=""><img src="../../assets/img/main/logo-white.png" alt="念相" class="logo"></a></div>

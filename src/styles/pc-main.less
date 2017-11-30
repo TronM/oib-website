@@ -1,4 +1,4 @@
-@import '../../node_modules/bootstrap/less/bootstrap.less';
+@import './bootstrap.css';
 @import './common.less';
 
 // ------------------------------------初始化-----------------------------------------
@@ -253,13 +253,23 @@ html, body {
 
 // ------------------------------------index-----------------------------------------
 
-video {
+.video {
+  position: fixed;
   width: 100%;
-  margin: 0 auto;
-  position: absolute;
-  z-index: 1;
+  height: 100%;
   top: 0;
   left: 0;
+  z-index: 1;
+  background-color: @main-color;
+}
+
+video {
+  height: 100%;
+  position: absolute;
+  transform: translate(-50%, -50%);
+  z-index: 1;
+  top: 50%;
+  left: 50%;
 }
 
 .index {
