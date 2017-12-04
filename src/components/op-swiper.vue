@@ -20,25 +20,26 @@
       swiper,
       swiperSlide
     },
-    props: ['slideList'],
-    data() {
-      return {
-        swiperOption: {
+    props: ['slideList', 'options'],
+    computed: {
+      swiperOption() {
+        return Object.keys(this.options).length > 0 ? this.options : {
           notNextTick: true,
           loop: true,
           autoplay: 4000,
           paginationClickable: true,
           autoplayDisableOnInteraction: false,
           speed: 1500,
-          width: $('body').width() < 1440 ? 1440 : $('body').width(),
+          // width: $('body').width() < 1440 ? 1440 : $('body').width(),
+          width: $('body').width(),
           // 如果需要分页器
           pagination: '.swiper-pagination',
           // 如果需要前进后退按钮
           nextButton: '.swiper-button-next',
           prevButton: '.swiper-button-prev',
           effect: 'fade'
-        }
-      };
+        };
+      }
     }
   };
 </script>

@@ -2,11 +2,11 @@
   <div class="wrapper contact">
     <div class="list box-padding">
       <div class="row">
-        <div class="col-xs-2 side-column">
+        <div class="col-sm-2 col-xs-12  side-column">
           <h3>CENTRE<span>SHANGHAI.CHINA </span></h3>
           <h4>中国·上海 总部</h4>
         </div>
-        <div class="col-xs-4 info">
+        <div class="col-sm-4 col-xs-12  info">
           <h4>ADDRESS 地址</h4>
           B4-3D，Bansongyuan Rd, <br>
           Huangpu District, Shanghai, China<br>
@@ -31,14 +31,14 @@
           设计中心招聘邮箱<br>
           info@nx-design.net<br>
         </div>
-        <div class="col-xs-6 map" id="map-shanghai"></div>
+        <div class="col-sm-6 col-xs-12 map" id="map-shanghai"></div>
       </div>
       <div class="row">
-        <div class="col-xs-2 side-column">
+        <div class="col-sm-2 col-xs-12 side-column">
           <h3><span>GUANGZHOU.CHINA</span></h3>
           <h4>中国·广州 分部</h4>
         </div>
-        <div class="col-xs-4 info">
+        <div class="col-sm-4 col-xs-12 info">
           <h4>ADDRESS 地址</h4>
           Room2005-2006, North Tower, <br>
           Poly Tower V, No. 11, Xiancun Road, <br>
@@ -63,14 +63,14 @@
           策略中心招聘邮箱<br>
           peng@oib-china.com<br>
         </div>
-        <div class="col-xs-6 map" id="map-guangzhou"></div>
+        <div class="col-sm-6 col-xs-12 map" id="map-guangzhou"></div>
       </div>
       <div class="row">
-        <div class="col-xs-2 side-column">
+        <div class="col-sm-2 col-xs-12 side-column">
           <h3>R&D CENTRE<span>KOBE.JAPAN</span></h3>
           <h4>日本·神户 研发中心</h4>
         </div>
-        <div class="col-xs-4 info">
+        <div class="col-sm-4 col-xs-12 info">
           <h4>ADDRESS 地址</h4>
           神戸市中央区港島南町５−５−２<br>
           神戸国際ビジネスセンター６０５美研創新（株）内<br><br>
@@ -80,7 +80,7 @@
           Tel: 078-381-5304<br>
           matsufuji@cosmo-jc.org<br>
         </div>
-        <div class="col-xs-6 map" id="map-shenhu"></div>
+        <div class="col-sm-6 col-xs-12 map" id="map-shenhu"></div>
       </div>
     </div>
   </div>

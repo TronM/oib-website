@@ -1,7 +1,7 @@
 <template>
   <div class="wrapper works">
     <div class="row" v-for="(row, rowIndex) of worksCollection">
-      <div class="col-xs-4" v-for="(item, colIndex) of row">
+      <div class="col-sm-4 col-xs-12"  v-for="(item, colIndex) of row">
         <router-link :to="{ name: 'work.detail', params: { id: item.id } }">
           <img :src="$t(`works.list[${3 * rowIndex + colIndex}].cover`) || 'https://dummyimage.com/800X450/F00'" alt="">
           <div class="hover">

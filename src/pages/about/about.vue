@@ -1,31 +1,31 @@
 <template>
   <div class="wrapper about">
-    <op-swiper :slide-list="slideList"></op-swiper>
+    <op-swiper :slide-list="slideList" :options="{}"></op-swiper>
     
     <div class="text box-padding"><img src="../../assets/img/about/text.png" alt=""></div>
     
-    <div class="kv box-padding">
-      <div class="col-xs-3 item">
+    <div class="kv box-padding clearfix">
+      <div class="col-sm-3 col-xs-6 item">
         <h4>ESTABLISHED</h4>
         <span>2013</span>
         <a href="">Find and join us</a>
       </div>
-      <div class="col-xs-3 item">
+      <div class="col-sm-3 col-xs-6 item">
         <h4>PROJECTS</h4>
         <span>200 +</span>
         <a href="">Explore our work</a>
       </div>
-      <div class="col-xs-3 item">
+      <div class="col-sm-3 col-xs-6 item">
         <h4>BRANDS</h4>
         <span>100 +</span>
         <a href="">Search our clients</a>
       </div>
-      <div class="col-xs-3 item">
+      <div class="col-sm-3 col-xs-6 item">
         <h4>INCOME</h4>
         <span>200Billion +</span>
         <a href="">Contact us</a>
       </div>
-      <div class="col-xs-12 logo"></div>
+      <div class="col-xs-12 logo"><img src="../../assets/img/about/logo.png" alt="" v-show="!isPC"></div>
     </div>
     
     <ul class="list">
@@ -37,8 +37,8 @@
         <h3>{{ $t('pages.about.people') }}</h3>
         <div class="people">
           <div class="row" v-for="item of peopleList">
-            <div class="col-xs-5 photo"><img :src="item.photoUrl" alt=""></div>
-            <div class="col-xs-7 info">
+            <div class="col-sm-5 col-xs-12 photo"><img :src="item.photoUrl" alt=""></div>
+            <div class="col-sm-7 col-xs-12 info">
               <h4>{{item.name}}<span>{{item.title}}</span></h4>
               <p>{{item.intro}}</p>
             </div>
@@ -56,6 +56,7 @@
   export default {
     data() {
       return {
+        isPC: window.isPC,
         slideList: [
           require('../../assets/img/about/1.jpg'),
           require('../../assets/img/about/2.jpg'),
@@ -119,7 +120,7 @@
         }, {
           photoUrl: require('../../assets/img/about/jiangguozheng.jpg'),
           name: '姜国政',
-          title: 'OIB副总经理',
+          title: 'OIB副总经理 | 念相设计创始人',
           intro: '曾在法国巴黎centdegres奢侈品设计公司任职，并协助该公司进入上海，担任首席设计师。先后参与了纪梵希香水、Jean Galliano香水、佰草集护肤系列、自然堂护肤系列、彩妆系列、美素全案，马爹利全案，以及KRUPS厨房家电，SUPOR苏泊尔家电和SEIKO精工女表等诸多知名品牌的设计工作。2013年初在上海创建念相设计品牌（上海）有限公司，后与广州吴志刚品牌策划有限公司等企业共同组建OIB。'
         }, {
           photoUrl: require('../../assets/img/about/chenjun.jpg'),

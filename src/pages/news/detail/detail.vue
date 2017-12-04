@@ -5,11 +5,11 @@
         <img :src="$t('news.detail.bannerImg')" alt="">
       </div>
       <div class="row main box-padding">
-        <div class="col-xs-2 side-column">
+        <div class="col-sm-2 col-xs-12 side-column">
           <h3><span>{{ $t('pages.news.label') }}</span></h3>
           <h4>{{ $t('news.detail.title') }}</h4>
         </div>
-        <div class="col-xs-8 detail">
+        <div class="col-sm-8 col-xs-12 detail">
           <div class="date"><span>{{ $t('pages.public.time') }}</span>{{news.createdAt | dateFormat}}</div>
           <div v-html="$t('news.detail.contentHTML')"></div>
           

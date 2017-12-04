@@ -33,7 +33,7 @@
         $('.nav').animate({ right: '0' });
       },
       closeNav() {
-        $('.nav').animate({ right: '-250px' });
+        $('.nav').animate({ right: window.flagPC ? '-250px' : '-100vw' });
       }
     }
   };

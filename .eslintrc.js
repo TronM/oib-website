@@ -41,6 +41,7 @@ module.exports = {
     'func-names': 0,
     'no-mixed-operators': 0,
     'eqeqeq': 0,
-    'no-alert': 0
+    'no-alert': 0,
+    'linebreak-style':0
   }
 }
