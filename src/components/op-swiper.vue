@@ -15,30 +15,39 @@
   import { swiper, swiperSlide } from 'vue-awesome-swiper';
   import '@/styles/swiper-3.4.2.min.css';
   
+  const defaultOptions = {
+    notNextTick: true,
+    loop: true,
+    autoplay: 4000,
+    paginationClickable: true,
+    autoplayDisableOnInteraction: false,
+    speed: 1500,
+    // width: $('body').width() < 1440 ? 1440 : $('body').width(),
+    width: $('body').width(),
+    // 如果需要分页器
+    pagination: '.swiper-pagination',
+    // 如果需要前进后退按钮
+    nextButton: '.swiper-button-next',
+    prevButton: '.swiper-button-prev',
+    effect: 'fade'
+  };
   export default {
     components: {
       swiper,
       swiperSlide
     },
-    props: ['slideList', 'options'],
+    props: {
+      slideList: {
+        type: Array
+      },
+      options: {
+        type: Object,
+        default: defaultOptions
+      }
+    },
     computed: {
       swiperOption() {
-        return Object.keys(this.options).length > 0 ? this.options : {
-          notNextTick: true,
-          loop: true,
-          autoplay: 4000,
-          paginationClickable: true,
-          autoplayDisableOnInteraction: false,
-          speed: 1500,
-          // width: $('body').width() < 1440 ? 1440 : $('body').width(),
-          width: $('body').width(),
-          // 如果需要分页器
-          pagination: '.swiper-pagination',
-          // 如果需要前进后退按钮
-          nextButton: '.swiper-button-next',
-          prevButton: '.swiper-button-prev',
-          effect: 'fade'
-        };
+        return Object.assign({}, this.options, defaultOptions);
       }
     }
   };

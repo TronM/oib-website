@@ -33,6 +33,8 @@
   
     <scroll-top></scroll-top>
   
+    <!--<op-swiper :slide-list="slideList"></op-swiper>-->
+  
     <ul class="other box-padding">
       <li v-for="item of recommendNews">
         <router-link :to="{ name: 'news.detail', params: { id: item.id } }">

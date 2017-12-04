@@ -1,7 +1,7 @@
 <template>
   <div class="wrapper index">
-    <div class="video">
-      <video src="http://oib.oss-cn-beijing.aliyuncs.com/web/bg.mp4" autoplay="autoplay" loop="loop" @click="isVideoShown = false" v-if="isVideoShown"></video>
+    <div class="video" v-if="isVideoShown">
+      <video src="http://oib.oss-cn-beijing.aliyuncs.com/web/bg.mp4" autoplay="autoplay" loop="loop" @click="isVideoShown = false"></video>
     </div>
     <!-- <video src="../../assets/video/bg.mp4" autoplay="autoplay" loop="loop"></video> -->
     <div class="main box-padding">
