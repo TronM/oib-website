@@ -1,5 +1,5 @@
 <template>
-  <swiper :options="swiperOption" ref="mySwiper">
+  <swiper :options="swiperOptions" ref="mySwiper">
     <!-- slides -->
     <swiper-slide v-for="(item, index) of slideList" :key="index">
       <img :src="item" alt="">
@@ -11,7 +11,6 @@
   </swiper>
 </template>
 <script type="text/ecmascript-6" lang="babel">
-  import $ from 'jquery';
   import { swiper, swiperSlide } from 'vue-awesome-swiper';
   import '@/styles/swiper-3.4.2.min.css';
   
@@ -23,7 +22,7 @@
     autoplayDisableOnInteraction: false,
     speed: 1500,
     // width: $('body').width() < 1440 ? 1440 : $('body').width(),
-    width: $('body').width(),
+//    width: $('body').width(),
     // 如果需要分页器
     pagination: '.swiper-pagination',
     // 如果需要前进后退按钮
@@ -42,12 +41,12 @@
       },
       options: {
         type: Object,
-        default: defaultOptions
+        default: () => defaultOptions
       }
     },
     computed: {
-      swiperOption() {
-        return Object.assign({}, this.options, defaultOptions);
+      swiperOptions() {
+        return Object.assign({}, defaultOptions, this.options);
       }
     }
   };

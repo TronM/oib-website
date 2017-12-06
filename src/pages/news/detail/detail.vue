@@ -22,7 +22,7 @@
           <br /><br /><br />
           <p>
             <strong >{{ $t('pages.news.acknowledgments') }}</strong><br />
-            <div v-for="item of news.acknowledgments">
+            <div v-for="(item, index) of news.acknowledgments">
               <strong>{{ $t(`news.detail.acknowledgments[${index}].name`) }}</strong><br />
               <a :href="$t(`news.detail.acknowledgments[${index}].name`)" target="_blank">{{ $t(`news.detail.acknowledgments[${index}].name`) }}</a>
             </div>
@@ -33,7 +33,7 @@
   
     <scroll-top></scroll-top>
   
-    <!--<op-swiper :slide-list="slideList"></op-swiper>-->
+    <op-swiper :slide-list="recommendSlideList" :options="swiperOptions"></op-swiper>
   
     <ul class="other box-padding">
       <li v-for="item of recommendNews">
@@ -56,6 +56,7 @@
   import newsApi from '@/api/news';
   import dateFormat from '@/filters/date';
   import scrollTop from '@/components/scroll-top';
+  import opSwiper from '@/components/op-swiper';
 
   export default {
     data() {
@@ -72,6 +73,11 @@
             link: 'http://www.jumeili.cn/News/View/21422.html'
           }],
           enable: 1, // number, 是否启用，1是 0否
+        },
+        swiperOptions: {
+          slidesPerView: 2,
+          spaceBetween: 30,
+          effect: 'slide'
         },
         recommendNews: [{
           id: '3',
@@ -104,7 +110,13 @@
       dateFormat
     },
     components: {
-      scrollTop
+      scrollTop,
+      opSwiper
+    },
+    computed: {
+      recommendSlideList() {
+        return this.recommendNews.map(item => item.bannerImg);
+      }
     },
     methods: {
       async fetchNews() {
