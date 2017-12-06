@@ -32,12 +32,10 @@
     </div>
   
     <scroll-top></scroll-top>
-  
-    <op-swiper :slide-list="recommendSlideList" :options="swiperOptions"></op-swiper>
-  
-    <ul class="other box-padding">
-      <li v-for="item of recommendNews">
-        <router-link :to="{ name: 'news.detail', params: { id: item.id } }">
+    
+    <div class="other box-padding">
+      <op-swiper :slide-list="recommendNews" :options="swiperOptions">
+        <router-link slot-scope="{ item }" :to="{ name: 'news.detail', params: { id: item.id } }">
           <div>
             <img :src="item.bannerImg">
             <div class="hover">
@@ -48,8 +46,8 @@
           </div>
           <div class="circle"></div>
         </router-link>
-      </li>
-    </ul>
+      </op-swiper>
+    </div>
   </div>
 </template>
 <script type="text/ecmascript-6" lang="babel">
@@ -75,8 +73,9 @@
           enable: 1, // number, 是否启用，1是 0否
         },
         swiperOptions: {
-          slidesPerView: 2,
+          slidesPerView: 4,
           spaceBetween: 30,
+          pagination: '',
           effect: 'slide'
         },
         recommendNews: [{
@@ -91,18 +90,54 @@
             link: 'http://www.jumeili.cn/News/View/21422.html'
           }],
           enable: 1, // number, 是否启用，1是 0否
-        }, {
-          id: '4',
-          title: '首届CBF召开，专注于美妆消费者前瞻性视觉洞察',
-          createdAt: '2017-10-10 10:20:30',
-          bannerImg: 'http://test.tron-m.com/oib-api/resource/getResources.do?id=68',
-          contentHTML: '',
-          information: '', // 信息
-          acknowledgments: [{ // 鸣谢
-            name: '聚美丽',
-            link: 'http://www.jumeili.cn/News/View/21422.html'
-          }],
-          enable: 1, // number, 是否启用，1是 0否
+//        }, {
+//          id: '4',
+//          title: '首届CBF召开，专注于美妆消费者前瞻性视觉洞察',
+//          createdAt: '2017-10-10 10:20:30',
+//          bannerImg: 'http://test.tron-m.com/oib-api/resource/getResources.do?id=68',
+//          contentHTML: '',
+//          information: '', // 信息
+//          acknowledgments: [{ // 鸣谢
+//            name: '聚美丽',
+//            link: 'http://www.jumeili.cn/News/View/21422.html'
+//          }],
+//          enable: 1, // number, 是否启用，1是 0否
+//        }, {
+//          id: '4',
+//          title: '首届CBF召开，专注于美妆消费者前瞻性视觉洞察',
+//          createdAt: '2017-10-10 10:20:30',
+//          bannerImg: 'http://test.tron-m.com/oib-api/resource/getResources.do?id=68',
+//          contentHTML: '',
+//          information: '', // 信息
+//          acknowledgments: [{ // 鸣谢
+//            name: '聚美丽',
+//            link: 'http://www.jumeili.cn/News/View/21422.html'
+//          }],
+//          enable: 1, // number, 是否启用，1是 0否
+//        }, {
+//          id: '4',
+//          title: '首届CBF召开，专注于美妆消费者前瞻性视觉洞察',
+//          createdAt: '2017-10-10 10:20:30',
+//          bannerImg: 'http://test.tron-m.com/oib-api/resource/getResources.do?id=68',
+//          contentHTML: '',
+//          information: '', // 信息
+//          acknowledgments: [{ // 鸣谢
+//            name: '聚美丽',
+//            link: 'http://www.jumeili.cn/News/View/21422.html'
+//          }],
+//          enable: 1, // number, 是否启用，1是 0否
+//        }, {
+//          id: '4',
+//          title: '首届CBF召开，专注于美妆消费者前瞻性视觉洞察',
+//          createdAt: '2017-10-10 10:20:30',
+//          bannerImg: 'http://test.tron-m.com/oib-api/resource/getResources.do?id=68',
+//          contentHTML: '',
+//          information: '', // 信息
+//          acknowledgments: [{ // 鸣谢
+//            name: '聚美丽',
+//            link: 'http://www.jumeili.cn/News/View/21422.html'
+//          }],
+//          enable: 1, // number, 是否启用，1是 0否
         }]
       };
     },
@@ -112,11 +147,6 @@
     components: {
       scrollTop,
       opSwiper
-    },
-    computed: {
-      recommendSlideList() {
-        return this.recommendNews.map(item => item.bannerImg);
-      }
     },
     methods: {
       async fetchNews() {

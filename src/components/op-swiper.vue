@@ -2,7 +2,8 @@
   <swiper :options="swiperOptions" ref="mySwiper">
     <!-- slides -->
     <swiper-slide v-for="(item, index) of slideList" :key="index">
-      <img :src="item" alt="">
+      <slot v-if="$scopedSlots.default" :item="item"></slot>
+      <img  v-else :src="item" alt="">
     </swiper-slide>
     <!-- Optional controls -->
     <div class="swiper-pagination"  slot="pagination"></div>
@@ -21,7 +22,6 @@
     paginationClickable: true,
     autoplayDisableOnInteraction: false,
     speed: 1500,
-    // width: $('body').width() < 1440 ? 1440 : $('body').width(),
 //    width: $('body').width(),
     // 如果需要分页器
     pagination: '.swiper-pagination',
