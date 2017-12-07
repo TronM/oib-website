@@ -34,7 +34,7 @@
     <scroll-top></scroll-top>
     
     <div class="other box-padding">
-      <op-swiper :slide-list="recommendNews" :options="swiperOptions">
+      <op-swiper :slide-list="recommendedNews" :options="swiperOptions">
         <router-link slot-scope="{ item }" :to="{ name: 'news.detail', params: { id: item.id } }">
           <div>
             <img :src="item.bannerImg">
@@ -78,7 +78,7 @@
           pagination: '',
           effect: 'slide'
         },
-        recommendNews: [{
+        recommendedNews: [{
           id: '3',
           title: '中国化妆品设计的国际首金',
           createdAt: '2017-10-10 10:20:30',
@@ -152,6 +152,8 @@
       async fetchNews() {
         const { id } = this.$route.params;
         this.news = await newsApi.get(id);
+        this.recommendedNews = (await newsApi.recommendedList({ id }))
+          .map(item => Object.assign(item, item[this.$route.params.lang]));
         ['zh_cn', 'en'].forEach((lang) => {
           this.$i18n.mergeLocaleMessage(lang, {
             news: {

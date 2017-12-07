@@ -12,10 +12,13 @@ const create = params => oib.post(`${base}`, params).then(res => res.data);
 
 const save = (id, params) => oib.put(`${base}/${id}`, params).then(res => res.data);
 
+const recommendedList = params => oib.get(`${base}/recommendedList`, { params }).then(res => res.data);
+
 export default {
   get,
   destroy,
   list,
   create,
-  save
+  save,
+  recommendedList
 };
