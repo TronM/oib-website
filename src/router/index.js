@@ -17,8 +17,6 @@ const root = Vue.component('root', {
   template: '<router-view></router-view>'
 });
 
-window.isPC = !/Android|webOS|iPhone|iPod|BlackBerry/i.test(navigator.userAgent);
-
 export default new Router({
   routes: [
     {
