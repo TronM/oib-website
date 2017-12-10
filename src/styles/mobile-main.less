@@ -678,10 +678,12 @@ html, body {
                 width: 33.3333333%;
                 font-size: 18px;
                 text-align: center;
-                border-left: 1px solid @main-color;
                 border-bottom: 1px solid @main-color;
                 //position: relative;
                 cursor: pointer;
+                &:not(:first-child) {
+                    border-left: 1px solid @main-color;
+                }
 
                 // 二级选择
                 ol {
@@ -820,7 +822,7 @@ html, body {
 
         .result-other {
             min-height: 800px;
-            display: none;
+            //display: none;
             
             .result {
                 width: 83.33333333%;

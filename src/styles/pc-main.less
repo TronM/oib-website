@@ -640,10 +640,13 @@ video {
         width: 33.3333333%;
         font-size: 24px;
         text-align: center;
-        border-left: 1px solid @main-color;
         border-bottom: 1px solid @main-color;
+        border-left: 1px solid @main-color;
         position: relative;
         cursor: pointer;
+        &:not(:first-child) {
+          border-left: 1px solid @main-color;
+        }
 
         // 二级选择
         ol {
@@ -711,8 +714,9 @@ video {
         color: @main-color;
         font-size: 20px;
         font-weight: bold;
-        height: 65px;
-        line-height: 65px;
+        padding: 20px 0;
+        //height: 65px;
+        //line-height: 65px;
         border-bottom: 1px solid @main-color;
 
         span {
@@ -758,7 +762,7 @@ video {
 
     .result-other {
       min-height: 800px;
-      display: none;
+      //display: none;
 
       .result {
         width: 83.33333333%;
@@ -768,7 +772,7 @@ video {
         h3 {
           color: @main-color;
           display: inline-block;
-          padding-right: 30xp;
+          padding-right: 30px;
           border-bottom: 2px solid @main-color;
           margin-bottom: 25px;
 

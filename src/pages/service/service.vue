@@ -6,35 +6,41 @@
       <ul>
         <li :class="{ active: shownCategory.value === item.value }" class="item" v-for="item of categories" @click="chooseCategory(item)">
           {{ $t(item.label) }}
-          <div v-if="item.options && item.options.length">
+          <template v-if="item.options && item.options.length">
             <span></span>
-            <ol>
+            <ol v-if="isDropdownListOpend">
               <li v-for="cItem of item.options" @click="chooseOption(cItem)">{{cItem.label}}</li>
             </ol>
-          </div>
+          </template>
         </li>
       </ul>
-      <div v-if="shownCategory.value === categories[0].value" class="result-letter">
-        <div class="nav-letter">
-          BRANDS<span @click="chooseOption('')">A~Z</span>:
-          <span @click="chooseOption(item)" v-for="item of letterList">{{item}}</span>
+      <div v-if="shownCategory.value === categories[0].value" class="result-letter" :class="{ 'result-mobile': !isPC, 'box-padding': !isPC }">
+        <div class="right-col">
+          <div class="nav-letter">
+            <span>BRANDS<span @click="chooseOption('')">A~Z</span>:</span>
+            <span @click="chooseOption(item)" v-for="item of letterList">{{item}}</span>
+          </div>
         </div>
-        <div class="result">
-          <div class="row" v-for="(item, row) of letterResult">
-            <div class="col-xs-offset-1 col-xs-1 letter">{{item.value}}</div>
-            <div class="col-xs-10 list">
-              <div class="col-xs-2" v-for="(cItem, col) of item.result">{{ cItem.name }}</div>
+        <div class="left-col">
+          <div class="result">
+            <div class="row" v-for="(item, row) of letterResult">
+              <div class="col-xs-1 letter" :class="{ 'col-xs-offset-1': isPC }">{{item.value}}</div>
+              <div class="col-xs-10 list" :class="{ 'col-xs-offset-1': !isPC }">
+                <div class="col-xs-12 col-md-1" v-for="(cItem, col) of item.result">{{ cItem.name }}</div>
+              </div>
             </div>
+            <div v-if="!letterResult.length" class="no-result">没有查询结果</div>
           </div>
         </div>
       </div>
       <div v-if="shownCategory.value === categories[1].value" class="result-other box-padding">
         <div class="result" v-for="item of industryResult">
-          <h3>{{item.value | formatEnums(industryOptions)}}</h3>
+          <h3>{{item.value | formatEnums(industryOptions) || '其他'}}</h3>
           <div class="row">
             <div class="col-xs-2" v-for="cItem of item.result">{{cItem.name}}</div>
           </div>
         </div>
+        <div v-if="!industryResult.length" class="no-result">没有查询结果</div>
       </div>
       <div v-if="shownCategory.value === categories[2].value" class="result-other box-padding">
         <div class="result" v-for="item of projectResult">
@@ -43,6 +49,7 @@
             <div class="col-xs-2" v-for="cItem of item.result">{{cItem.name}}</div>
           </div>
         </div>
+        <div v-if="!projectResult.length" class="no-result">没有查询结果</div>
       </div>
     </div>
   </div>
@@ -64,6 +71,8 @@
     },
     data() {
       return {
+        isPC: window.isPC,
+        isDropdownListOpend: false,
         shownCategory: {},
         slideList: [
           'https://dummyimage.com/800X450/246',
@@ -245,6 +254,8 @@
     },
     methods: {
       chooseCategory(item) {
+        this.isDropdownListOpend = item.value === this.shownCategory.value &&
+          !this.isDropdownListOpend;
         this.shownCategory = Object.assign({}, item);
       },
       chooseOption(option) {
@@ -282,3 +293,14 @@
     }
   };
 </script>
+<style>
+  .no-result {
+    margin-top: 100px;
+    text-align: center;
+    font-size: 20px;
+  }
+  .result-mobile {
+    display: flex;
+    flex-direction: row-reverse;
+  }
+</style>

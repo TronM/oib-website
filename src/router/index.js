@@ -44,7 +44,14 @@ export default new Router({
         {
           path: 'service',
           name: 'service',
-          component: window.isPC ? service : mservice,
+          // component: window.isPC ? service : mservice,
+          component: service,
+        },
+        {
+          path: 'mservice',
+          name: 'mservice',
+          // component: window.isPC ? service : mservice,
+          component: mservice,
         },
         {
           path: 'news',
