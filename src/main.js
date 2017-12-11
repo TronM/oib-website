@@ -11,8 +11,6 @@ import App from './App';
 import router from './router';
 import messages from './local/messages';
 
-window.isPC = !/Android|webOS|iPhone|iPod|BlackBerry/i.test(navigator.userAgent);
-
 if (window.isPC) {
   require('./styles/pc-main.less');
 } else {
