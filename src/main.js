@@ -12,9 +12,9 @@ import router from './router';
 import messages from './local/messages';
 
 if (window.isPC) {
-  require('./styles/pc-main.less');
+  import('./styles/pc-main.less');
 } else {
-  require('./styles/mobile-main.less');
+  import('./styles/mobile-main.less');
 }
 
 Vue.config.productionTip = false;
