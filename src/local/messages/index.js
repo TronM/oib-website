@@ -19,7 +19,8 @@ export default {
         no_more_result: 'There is no more News :('
       },
       work: {
-        project: 'PROJECT'
+        project: 'PROJECT',
+        no_more_result: 'There is no more Works :('
       },
       service: {
         letter: 'LETTER',
@@ -60,7 +61,8 @@ export default {
         no_more_result: '没有更多新闻了！:('
       },
       work: {
-        project: '项目'
+        project: '项目',
+        no_more_result: '没有更多作品了！:('
       },
       service: {
         letter: '按首字母',

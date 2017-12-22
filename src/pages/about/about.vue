@@ -162,7 +162,7 @@
     },
     async created() {
       this.about = await aboutApi.get();
-      if (this.about) {
+      if (this.about.zh_cn || this.about.en) {
         this.listData = this.listData.map(item => Object.assign(item, {
           detailHtml: `about.detail.${item.key}`
         }));

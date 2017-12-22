@@ -1,6 +1,6 @@
 <template>
   <div class="wrapper news">
-    <ul class="list">
+    <ul class="list" v-if="news.length">
       <li v-for="(item, index) of news">
         <router-link :to="{ name: 'news.detail', params: { id: item.id } }">
           <div class="box">
@@ -17,6 +17,7 @@
         </span>
       </infinite-loading>
     </ul>
+    <div class="no-more-result">{{ $t(`pages.news.no_more_result`) }}</div>
   </div>
 </template>
 <script type="text/ecmascript-6" lang="babel">
