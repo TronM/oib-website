@@ -162,16 +162,18 @@
     },
     async created() {
       this.about = await aboutApi.get();
-      this.listData = this.listData.map(item => Object.assign(item, {
-        detailHtml: `about.detail.${item.key}`
-      }));
-      ['zh_cn', 'en'].forEach((lang) => {
-        this.$i18n.mergeLocaleMessage(lang, {
-          about: {
-            detail: Object.assign({}, this.about, this.about[lang])
-          }
+      if (this.about) {
+        this.listData = this.listData.map(item => Object.assign(item, {
+          detailHtml: `about.detail.${item.key}`
+        }));
+        ['zh_cn', 'en'].forEach((lang) => {
+          this.$i18n.mergeLocaleMessage(lang, {
+            about: {
+              detail: Object.assign({}, this.about, this.about[lang])
+            }
+          });
         });
-      });
+      }
     }
   };
 </script>
