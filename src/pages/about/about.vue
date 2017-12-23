@@ -1,6 +1,6 @@
 <template>
   <div class="wrapper about">
-    <op-swiper :slide-list="slideList" :options="{}"></op-swiper>
+    <op-swiper :slide-list="slideList"></op-swiper>
     
     <div class="text box-padding"><img src="../../assets/img/about/text.png" alt=""></div>
     
@@ -57,12 +57,7 @@
     data() {
       return {
         isPC: window.isPC,
-        slideList: [
-          require('../../assets/img/about/1.jpg'),
-          require('../../assets/img/about/2.jpg'),
-          require('../../assets/img/about/3.jpg'),
-          require('../../assets/img/about/4.jpg')
-        ],
+        slideList: [],
         about: {},
         listData: [{
           key: 'introductionHTML',
@@ -161,6 +156,7 @@
         });
     },
     async created() {
+      this.slideList = (await aboutApi.getSliders()).sliders;
       this.about = await aboutApi.get();
       if (this.about.zh_cn || this.about.en) {
         this.listData = this.listData.map(item => Object.assign(item, {

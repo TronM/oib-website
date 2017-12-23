@@ -12,10 +12,13 @@ const get = params => oib.get(`${base}`, { params }).then(res => res.data);
 
 const save = params => oib.put(`${base}`, params).then(res => res.data);
 
+const getSliders = () => oib.get('about-sliders').then(res => res.data);
+
 export default {
   get,
   // destroy,
   // list,
   // create,
-  save
+  save,
+  getSliders
 };

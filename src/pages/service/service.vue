@@ -74,14 +74,7 @@
         isPC: window.isPC,
         isDropdownListOpend: false,
         shownCategory: {},
-        slideList: [
-          'https://dummyimage.com/800X450/246',
-          'https://dummyimage.com/800X450/CCC',
-          'https://dummyimage.com/800X450/FF0',
-          'https://dummyimage.com/800X450/0CC',
-          'https://dummyimage.com/800X450/00F',
-          'https://dummyimage.com/800X450/1F7'
-        ],
+        slideList: [],
         industryData: [],
         projectData: [],
         serviceList: [{
