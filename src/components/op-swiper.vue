@@ -52,11 +52,6 @@
         default: () => defaultOptions
       }
     },
-    watch: {
-      slideList(value) {
-        console.log('iii', value);
-      }
-    },
     computed: {
       swiperOptions() {
         return Object.assign({}, defaultOptions, this.options);
