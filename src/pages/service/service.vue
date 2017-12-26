@@ -163,9 +163,9 @@
     },
     computed: {
       letterResult() {
-        return this.shownCategory.seleted
+        return (this.shownCategory.seleted
           && this.letterCustomer.filter(item => item.value == this.shownCategory.seleted)
-          || this.letterCustomer;
+          || this.letterCustomer).sort((one, other) => one.value > other.value);
       },
       industryResult() {
         return this.shownCategory.seleted

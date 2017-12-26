@@ -1,6 +1,5 @@
 <template>
   <div class="wrapper works">
-    {{worksCollection.length}}ppp
     <template v-if="worksCollection.length">
       <div class="row" v-for="(row, rowIndex) of worksCollection">
         <div class="col-sm-4 col-xs-12"  v-for="(item, colIndex) of row">
