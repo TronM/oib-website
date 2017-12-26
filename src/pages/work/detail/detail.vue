@@ -11,7 +11,7 @@
         </div>
         <div class="col-sm-8 col-xs-12 detail">
           <div class="date"><span>{{ $t('pages.public.time') }}</span>{{work.createdAt | dateFormat}}</div>
-          <div v-html="$t('work.detail.contentHTML')"></div>
+          <div style="margin-bottom: 80px;" v-html="$t('work.detail.contentHTML')"></div>
 
           <div class="row">
             <div class="col-sm-6 col-xs-12">
@@ -47,7 +47,7 @@
     </div>
 
     <scroll-top></scroll-top>
-    
+
     <div class="other box-padding">
       <op-swiper :slide-list="recommendedWorks" :options="swiperOptions">
         <router-link slot-scope="{ item }" :to="{ name: 'work.detail', params: { id: item.id } }">
