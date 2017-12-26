@@ -8,7 +8,6 @@
             <div class="hover">
               <h4>{{ $t(`works.list[${3 * rowIndex + colIndex}].name`) }}</h4>
               <p>{{ $t(`works.list[${3 * rowIndex + colIndex}].coverText`) }}</p>
-              <div>欧诗漫 产品设计</div>
             </div>
           </router-link>
         </div>
