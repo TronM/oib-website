@@ -12,7 +12,7 @@
         <div class="col-sm-8 col-xs-12 detail">
           <div class="date"><span>{{ $t('pages.public.time') }}</span>{{work.createdAt | dateFormat}}</div>
           <div v-html="$t('work.detail.contentHTML')"></div>
-  
+
           <div class="row">
             <div class="col-sm-6 col-xs-12">
               <h4>SERVICE</h4>
@@ -31,10 +31,10 @@
         </div>
       </div>
     </div>
-  
+
     <!-- Modal -->
     <div class="modal container fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-    
+
       <div class="modal-content">
         <div class="modal-header">
           <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
@@ -45,14 +45,29 @@
         </div>
       </div>
     </div>
-  
+
     <scroll-top></scroll-top>
-  
-    <ul class="other box-padding">
-      <li v-for="item of recommendWorks">
-        <router-link :to="{ name: 'work.detail', params: { id: item.id } }">
+
+    <!--<ul class="other box-padding">-->
+      <!--<li v-for="item of recommendWorks">-->
+        <!--<router-link :to="{ name: 'work.detail', params: { id: item.id } }">-->
+          <!--<div>-->
+            <!--<img :src="item.cover">-->
+            <!--<div class="hover">-->
+              <!--<div class="box">-->
+                <!--<div class="middle">{{item.name}}</div>-->
+              <!--</div>-->
+            <!--</div>-->
+          <!--</div>-->
+          <!--<div class="circle"></div>-->
+        <!--</router-link>-->
+      <!--</li>-->
+    <!--</ul>-->
+    <div class="other box-padding">
+      <op-swiper :slide-list="recommendedWorks" :options="swiperOptions">
+        <router-link slot-scope="{ item }" :to="{ name: 'work.detail', params: { id: item.id } }">
           <div>
-            <img :src="item.cover">
+            <img :src="item.bannerImg">
             <div class="hover">
               <div class="box">
                 <div class="middle">{{item.name}}</div>
@@ -61,8 +76,8 @@
           </div>
           <div class="circle"></div>
         </router-link>
-      </li>
-    </ul>
+      </op-swiper>
+    </div>
   </div>
 </template>
 <script type="text/ecmascript-6" lang="babel">
@@ -70,7 +85,8 @@
   import serviceTagApi from '@/api/service-tag';
   import dateFormat from '@/filters/date';
   import scrollTop from '@/components/scroll-top';
-  
+  import opSwiper from '@/components/op-swiper';
+
   export default {
     data() {
       return {
@@ -88,74 +104,29 @@
           serviceNames: [],
           sort: 0
         },
-        recommendWorks: [{
-          id: '2',
-          name: 'test',
-          createdAt: '',
-          bannerImg: 'https://dummyimage.com/800X450/CC9',
-          contentHTML: '<div>加载中...</div>',
-          cover: 'https://dummyimage.com/800X450/CC9',
-          coverText: '',
-          coverVideoUrl: '',
-          enable: 1,
-          sort: 0
-        }, {
-          id: '3',
-          name: 'test',
-          createdAt: '',
-          bannerImg: 'https://dummyimage.com/800X450/99C',
-          contentHTML: '<div>加载中...</div>',
-          cover: 'https://dummyimage.com/800X450/99C',
-          coverText: '',
-          coverVideoUrl: '',
-          enable: 1,
-          sort: 0
-        }, {
-          id: '4',
-          name: 'test',
-          createdAt: '',
-          bannerImg: 'https://dummyimage.com/800X450/CC9',
-          contentHTML: '<div>加载中...</div>',
-          cover: 'https://dummyimage.com/800X450/CC9',
-          coverText: '',
-          coverVideoUrl: '',
-          enable: 1,
-          sort: 0
-        }, {
-          id: '5',
-          name: 'test',
-          createdAt: '',
-          bannerImg: 'https://dummyimage.com/800X450/99C',
-          contentHTML: '<div>加载中...</div>',
-          cover: 'https://dummyimage.com/800X450/99C',
-          coverText: '',
-          coverVideoUrl: '',
-          enable: 1,
-          sort: 0
-        }, {
-          id: '6',
-          name: 'test',
-          createdAt: '',
-          bannerImg: 'https://dummyimage.com/800X450/CC9',
-          contentHTML: '<div>加载中...</div>',
-          cover: 'https://dummyimage.com/800X450/CC9',
-          coverText: '',
-          coverVideoUrl: '',
-          enable: 1,
-          sort: 0
-        }]
+        swiperOptions: {
+          slidesPerView: 4,
+          spaceBetween: 30,
+          pagination: '',
+          effect: 'slide'
+        },
+        recommendedWorks: []
       };
     },
     filters: {
       dateFormat
     },
     components: {
-      scrollTop
+      scrollTop,
+      opSwiper
     },
     methods: {
       async fetchWork() {
         const { id } = this.$route.params;
         this.work = await workApi.get(id);
+        this.recommendedWorks = (await workApi.recommendedList({ id }))
+          .map(item => Object.assign(item, item[this.$route.params.lang]));
+        console.log('llppp', this.recommendedWorks);
         const langKeys = ['label', 'enLabel'];
         ['zh_cn', 'en'].forEach((lang, index) => {
           this.work.serviceNames = this.serviceTagOptions

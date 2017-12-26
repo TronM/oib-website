@@ -12,7 +12,7 @@
         <div class="col-sm-8 col-xs-12 detail">
           <div class="date"><span>{{ $t('pages.public.time') }}</span>{{news.createdAt | dateFormat}}</div>
           <div v-html="$t('news.detail.contentHTML')"></div>
-          
+
           <br /><br /><br />
           <p>
             <strong>{{ $t('pages.news.link') }}</strong><br />
@@ -22,17 +22,17 @@
           <br /><br /><br />
           <p>
             <strong >{{ $t('pages.news.acknowledgments') }}</strong><br />
-            <div v-for="(item, index) of news.acknowledgments">
+            <template v-for="(item, index) of news.acknowledgments">
               <strong>{{ $t(`news.detail.acknowledgments[${index}].name`) }}</strong><br />
               <a :href="$t(`news.detail.acknowledgments[${index}].name`)" target="_blank">{{ $t(`news.detail.acknowledgments[${index}].name`) }}</a>
-            </div>
+            </template>
           </p>
         </div>
       </div>
     </div>
-  
+
     <scroll-top></scroll-top>
-    
+
     <div class="other box-padding">
       <op-swiper :slide-list="recommendedNews" :options="swiperOptions">
         <router-link slot-scope="{ item }" :to="{ name: 'news.detail', params: { id: item.id } }">
