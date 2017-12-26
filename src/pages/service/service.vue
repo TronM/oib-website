@@ -1,7 +1,7 @@
 <template>
   <div class="wrapper service">
     <op-swiper :slide-list="slideList"></op-swiper>
-    
+
     <div class="category">
       <ul>
         <li :class="{ active: shownCategory.value === item.value }" class="item" v-for="item of categories" @click="chooseCategory(item)">
@@ -229,7 +229,9 @@
       }
     },
     async created() {
-      this.serviceList = (await customerApi.list()).content;
+      this.serviceList = (await customerApi.list({
+        enable: 1
+      })).content;
       this.industryData = (await industryApi.list()).content;
       this.projectData = (await serviceTagApi.list()).content;
       this.slideList = (await customerApi.getSliders()).sliders;

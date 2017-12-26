@@ -54,6 +54,7 @@
       },
       loadMoreData() {
         return newsApi.list({
+          enable: 1,
           page: this.currentPage,
           rows: this.pageSize
         }).then((data) => {

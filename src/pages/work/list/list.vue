@@ -39,43 +39,6 @@
     data() {
       return {
         works: [],
-//        works: [{
-//          id: '1',
-//          name: '哈哈哈哈',
-//          createdAt: '2017-10-10 10:20:30', // string（或者时间戳也可以，但最好都统一用一种）创建时间,
-//          bannerImg: 'https://dummyimage.com/800X450/FF0',  // string, 头图链接
-//          contentHTML: '<div>哈ppp哈哈</div>', // string, 正文
-//          cover: 'https://dummyimage.com/800X450/FF0', // string, 封面链接
-//          coverText: 'BOTTLE CONCEPT DESIGN - PACKAGING - MARKETING -
-//  NAMING - TVC COMMERCIAL - DIGITAL', // string, 封面文字
-//          coverVideoUrl: '', // string, 封面视频地址
-//          enable: 1, // number, 是否启用，1是 0否
-//          sort: 10  // number, 排序顺序
-//        }, {
-//          id: '2',
-//          name: 'OSM',
-//          createdAt: '2017-10-10 10:20:30',
-//          bannerImg: 'https://dummyimage.com/800X450/F0F',
-//          contentHTML: '<div>哈哈哈</div>',
-//          cover: 'https://dummyimage.com/800X450/F0F',
-//          coverText: 'BOTTLE CONCEPT DESIGN - PACKAGING - MARKETING -
-//  NAMING - TVC COMMERCIAL - DIGITAL',
-//          coverVideoUrl: '',
-//          enable: 1,
-//          sort: 20
-//        }, {
-//          id: '3',
-//          name: 'OSM',
-//          createdAt: '2017-10-10 10:20:30',
-//          bannerImg: 'https://dummyimage.com/800X450/CCC',
-//          contentHTML: '<div>哈哈哈</div>',
-//          cover: 'https://dummyimage.com/800X450/CCC',
-//          coverText: 'BOTTLE CONCEPT DESIGN - PACKAGING - MARKETING -
-//  NAMING - TVC COMMERCIAL - DIGITAL',
-//          coverVideoUrl: '',
-//          enable: 1,
-//          sort: 30
-//        }],
         currentPage: 1,
         pageSize: 10
       };
@@ -95,6 +58,7 @@
       },
       loadMoreData() {
         return workApi.list({
+          enable: 1,
           page: this.currentPage,
           rows: this.pageSize
         }).then((data) => {
