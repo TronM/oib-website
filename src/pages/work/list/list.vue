@@ -12,7 +12,7 @@
         </router-link>
       </div>
     </div>
-    <div class="no-more-result">{{ $t(`pages.work.no_more_result`) }}</div>
+    <div v-else class="no-more-result">{{ $t(`pages.work.no_more_result`) }}</div>
   </div>
 </template>
 <script type="text/ecmascript-6" lang="babel">
