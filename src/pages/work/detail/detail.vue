@@ -47,22 +47,7 @@
     </div>
 
     <scroll-top></scroll-top>
-
-    <!--<ul class="other box-padding">-->
-      <!--<li v-for="item of recommendWorks">-->
-        <!--<router-link :to="{ name: 'work.detail', params: { id: item.id } }">-->
-          <!--<div>-->
-            <!--<img :src="item.cover">-->
-            <!--<div class="hover">-->
-              <!--<div class="box">-->
-                <!--<div class="middle">{{item.name}}</div>-->
-              <!--</div>-->
-            <!--</div>-->
-          <!--</div>-->
-          <!--<div class="circle"></div>-->
-        <!--</router-link>-->
-      <!--</li>-->
-    <!--</ul>-->
+    
     <div class="other box-padding">
       <op-swiper :slide-list="recommendedWorks" :options="swiperOptions">
         <router-link slot-scope="{ item }" :to="{ name: 'work.detail', params: { id: item.id } }">
