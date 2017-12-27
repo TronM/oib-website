@@ -14,19 +14,14 @@
           <div v-html="$t('news.detail.contentHTML')"></div>
 
           <br /><br /><br />
-          <p>
-            <strong>{{ $t('pages.news.link') }}</strong><br />
-            <strong>OIB念相设计官网</strong><br />
-            <a href="http://www.nx-design.net" target="_blank">www.nx-design.net</a>
-          </p>
-          <br /><br /><br />
-          <p>
-            <strong >{{ $t('pages.news.acknowledgments') }}</strong><br />
-            <template v-for="(item, index) of news.acknowledgments">
-              <strong>{{ $t(`news.detail.acknowledgments[${index}].name`) }}</strong><br />
-              <a :href="$t(`news.detail.acknowledgments[${index}].name`)" target="_blank">{{ $t(`news.detail.acknowledgments[${index}].name`) }}</a>
-            </template>
-          </p>
+          <template v-for="item of $t('news.detail.additions')">
+            <p>
+              <strong >{{ item.title }}</strong><br />
+              <strong>{{ item.content }}</strong><br />
+              <a :href="item.link" target="_blank">{{ item.link }}</a>
+            </p>
+            <br /><br />
+          </template>
         </div>
       </div>
     </div>

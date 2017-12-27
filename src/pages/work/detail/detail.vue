@@ -111,7 +111,6 @@
         this.work = await workApi.get(id);
         this.recommendedWorks = (await workApi.recommendedList({ id }))
           .map(item => Object.assign(item, item[this.$route.params.lang]));
-        console.log('llppp', this.recommendedWorks);
         const langKeys = ['label', 'enLabel'];
         ['zh_cn', 'en'].forEach((lang, index) => {
           this.work.serviceNames = this.serviceTagOptions
