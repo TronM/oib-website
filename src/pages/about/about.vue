@@ -1,9 +1,9 @@
 <template>
   <div class="wrapper about">
     <op-swiper :slide-list="slideList"></op-swiper>
-    
+
     <div class="text box-padding"><img src="../../assets/img/about/text.png" alt=""></div>
-    
+
     <div class="kv box-padding clearfix">
       <div class="col-sm-3 col-xs-6 item">
         <h4>ESTABLISHED</h4>
@@ -27,7 +27,7 @@
       </div>
       <div class="col-xs-12 logo"><img src="../../assets/img/about/logo.png" alt="" v-show="!isPC"></div>
     </div>
-    
+
     <ul class="list">
       <li v-for="item of listData">
         <h3>{{ $t(item.title) }}</h3>
@@ -52,7 +52,7 @@
   import $ from 'jquery';
   import aboutApi from '@/api/about';
   import opSwiper from '@/components/op-swiper';
-  
+
   export default {
     data() {
       return {
@@ -72,15 +72,15 @@
           title: 'pages.about.composition',
           detailHtml: `<div>
           OIB.CHINA总部位于上海浦西世博园区超过1200平米的OIB时尚创新中心，在广州拥有品牌策略与创意供应链中心，在日本神户拥有产品研发中心。
-          
+
           <br><br>公司旗下拥有吴志刚品牌策划（W-INSIGHT@OIB）、念相设计（OIB.NX-DESIGN）、OIB.CHINA创意供应链中心、中日化妆品创新中心、翊飞电子商务、美研所、如芮、楚初等众多以产品创意人为核心的品牌创意供应链管理与服务公司。
-          
+
           <br><br>W-INSIGHT@OIB：致力于思考与实践，在日新月异的产业变革下，智慧地进行品牌建设与品牌营销，帮助客户在中国复杂多变的消费者市场和新兴渠道中发现机遇，精准定位品牌的市场目标，让客户的品牌有所作为，并使之传承百年。我们在时尚消费品领域兼备敏锐的本土和国际视野，并依靠不断创新的众多工具来完成此理想。
-          
+
           <br><br>OIB.NX-DESIGN：深入研习中国消费者的视觉审美变化，形成对中国消费美学的深刻认知及美学主张。及时洞悉中国个性与渠道最新动向，并将视觉呈现准确匹配渠道销售特征。将视觉呈现环节与OIB策略咨询优势紧密结合，确保商业目的的有效达成。立足时尚消费品行业，并不断加强专业壁垒，形成业内的绝对领导优势。
-          
+
           <br><br>OIB.CHINA创意供应链中心：信息化扁平的时代，依靠信息不对称而实现资源配置的传统供应系统迅速没落。我们认为，针对新时代更加个性与细分的新一代用户，只有通过“创意”了来激化“创一代”的热情、以“创新、创意”为核心驱动供应链系统各个环节有效增值、为用户带来真正触动内心的品牌，才是新时代所需要的“创意供
-        
+
         </div>`
         }, {
           key: 'parterHTML',
@@ -103,7 +103,7 @@
           title: 'pages.about.vision',
           detailHtml: '<div>detail</div>'
         }, {
-          key: 'awards',
+          key: 'awardHTML',
           title: 'pages.about.awards',
           detailHtml: '<div>detail</div>'
         }],
