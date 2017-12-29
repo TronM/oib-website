@@ -4,7 +4,6 @@ import index from '@/pages/index/index';
 import mindex from '@/pages/index/m-index';
 import about from '@/pages/about/about';
 import service from '@/pages/service/service';
-import mservice from '@/pages/service/m-service';
 import contact from '@/pages/contact/contact';
 import newsList from '@/pages/news/list/list';
 import newsDetail from '@/pages/news/detail/detail';
@@ -42,14 +41,7 @@ export default new Router({
         {
           path: 'service',
           name: 'service',
-          // component: window.isPC ? service : mservice,
           component: service,
-        },
-        {
-          path: 'mservice',
-          name: 'mservice',
-          // component: window.isPC ? service : mservice,
-          component: mservice,
         },
         {
           path: 'news',
