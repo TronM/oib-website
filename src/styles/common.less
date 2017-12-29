@@ -68,7 +68,7 @@ a { text-decoration:none;}
 }
 
 .absolute-box(@width, @height, @top, @right, @bottom, @left) {
-    .percent-box(@width, @height);    
+    .percent-box(@width, @height);
     .coordinate(@top, @right, @bottom, @left);
     position:absolute;
 }
@@ -87,7 +87,7 @@ a { text-decoration:none;}
 }
 
 .relative-box(@width, @height, @top, @right, @bottom, @left) {
-    .percent-box(@width, @height);   
+    .percent-box(@width, @height);
     .coordinate(@top, @right, @bottom, @left);
     position:relative;
 }
@@ -106,4 +106,10 @@ a { text-decoration:none;}
     text-align: center;
     font-size: 20px;
     padding: 120px;
+}
+
+.perview-html {
+  img {
+    width: 100%;
+  }
 }

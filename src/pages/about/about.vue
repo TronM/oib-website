@@ -31,7 +31,7 @@
     <ul class="list">
       <li v-for="item of listData">
         <h3>{{ $t(item.title) }}</h3>
-        <div v-html="$t(item.detailHtml)"></div>
+        <div v-html="$t(item.detailHtml)" class="perview-html"></div>
       </li>
       <li>
         <h3>{{ $t('pages.about.people') }}</h3>
