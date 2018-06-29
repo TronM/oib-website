@@ -10,7 +10,7 @@
           <h4>{{ $t('work.detail.name') }}</h4>
         </div>
         <div class="col-sm-8 col-xs-12 detail">
-          <div class="date"><span>{{ $t('pages.public.time') }}</span>{{work.createdAt | dateFormat}}</div>
+          <!-- <div class="date"><span>{{ $t('pages.public.time') }}</span>{{work.createdAt | dateFormat}}</div> -->
           <div style="margin-bottom: 80px;" v-html="$t('work.detail.contentHTML')"></div>
 
           <div class="row">

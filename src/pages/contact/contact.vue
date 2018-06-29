@@ -18,18 +18,6 @@
           +86 13817963363<br>
           jessie.jin@oib-china.com<br>
           官网 www.oib-china.com<br><br>
-          
-          OIB设计中心-念相设计 运营总监 魏琳凌<br>
-          +86 13917300893<br>
-          ling.wei@oib-china.com<br>
-          官网 www.nx-design.net<br><br>
-          
-          <h4>JOBS 招聘</h4>
-          总部招聘邮箱<br>
-          oib.hr@oib-china.com<br>
-          
-          设计中心招聘邮箱<br>
-          info@nx-design.net<br>
         </div>
         <div class="col-sm-6 col-xs-12 map" id="map-shanghai"></div>
       </div>
@@ -60,8 +48,8 @@
           peng@oib-china.com<br>
           
           <h4>JOBS 招聘</h4>
-          策略中心招聘邮箱<br>
-          peng@oib-china.com<br>
+          招聘邮箱<br>
+          icy.yu@oib-china.com<br>
         </div>
         <div class="col-sm-6 col-xs-12 map" id="map-guangzhou"></div>
       </div>
@@ -76,9 +64,9 @@
           神戸国際ビジネスセンター６０５美研創新（株）内<br><br>
           
           <h4>BUSINESS 商务联系</h4>
-          日中化妆品国际交流协会 社团法人 松藤玲子<br>
-          Tel: 078-381-5304<br>
-          matsufuji@cosmo-jc.org<br>
+          日中化妆品国际交流协会 社团法人 OIB总经办 金晶<br>
+          Tel: +86 13817963363<br>
+          jessie.jin@oib-china.com<br>
         </div>
         <div class="col-sm-6 col-xs-12 map" id="map-shenhu"></div>
       </div>

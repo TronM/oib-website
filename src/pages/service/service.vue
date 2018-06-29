@@ -14,7 +14,7 @@
           </template>
         </li>
       </ul>
-      <div v-if="shownCategory.value === categories[0].value" class="result-letter" :class="{ 'result-mobile': !isPC, 'box-padding': !isPC }">
+      <!-- <div v-if="shownCategory.value === categories[0].value" class="result-letter" :class="{ 'result-mobile': !isPC, 'box-padding': !isPC }">
         <div class="right-col">
           <div class="nav-letter">
             <span>BRANDS<span @click="chooseOption('')">A~Z</span>:</span>
@@ -32,8 +32,8 @@
             <div v-if="!letterResult.length" class="no-result">没有查询结果</div>
           </div>
         </div>
-      </div>
-      <div v-if="shownCategory.value === categories[1].value" class="result-other box-padding">
+      </div> -->
+      <div v-if="shownCategory.value === categories[0].value" class="result-other box-padding">
         <div class="result" v-for="item of industryResult">
           <h3>{{item.value | formatEnums(industryOptions) || '其他'}}</h3>
           <div class="row">
@@ -42,7 +42,7 @@
         </div>
         <div v-if="!industryResult.length" class="no-result">没有查询结果</div>
       </div>
-      <div v-if="shownCategory.value === categories[2].value" class="result-other box-padding">
+      <!-- <div v-if="shownCategory.value === categories[2].value" class="result-other box-padding">
         <div class="result" v-for="item of projectResult">
           <h3>{{item.value | formatEnums(projectOptions)}}</h3>
           <div class="row">
@@ -50,7 +50,7 @@
           </div>
         </div>
         <div v-if="!projectResult.length" class="no-result">没有查询结果</div>
-      </div>
+      </div> -->
     </div>
   </div>
 </template>
@@ -212,19 +212,19 @@
       },
       categories() {
         return [{
-          label: 'pages.service.letter',
-          value: 'letter',
-          seleted: ''
-        }, {
+        //   label: 'pages.service.letter',
+        //   value: 'letter',
+        //   seleted: ''
+        // }, {
           label: 'pages.service.industry',
           value: 'industry',
           options: this.industryOptions,
           seleted: ''
-        }, {
-          label: 'pages.service.project',
-          value: 'project',
-          options: this.projectOptions,
-          seleted: ''
+        // }, {
+        //   label: 'pages.service.project',
+        //   value: 'project',
+        //   options: this.projectOptions,
+        //   seleted: ''
         }];
       }
     },

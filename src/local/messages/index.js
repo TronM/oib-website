@@ -44,7 +44,7 @@ export default {
   zh_cn: {
     nav: {
       home: '首页',
-      works: '作品',
+      works: '案例',
       about: '关于我们',
       news: '新闻',
       service: '客户',
@@ -79,7 +79,7 @@ export default {
         ip: '独立IP',
         vision: '公司愿景',
         awards: '奖项',
-        people: '人'
+        people: '核心成员'
       }
     }
   }

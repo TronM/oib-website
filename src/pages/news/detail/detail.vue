@@ -10,7 +10,7 @@
           <h4>{{ $t('news.detail.title') }}</h4>
         </div>
         <div class="col-sm-8 col-xs-12 detail">
-          <div class="date"><span>{{ $t('pages.public.time') }}</span>{{news.createdAt | dateFormat}}</div>
+          <!-- <div class="date"><span>{{ $t('pages.public.time') }}</span>{{news.createdAt | dateFormat}}</div> -->
           <div v-html="$t('news.detail.contentHTML')"></div>
 
           <br /><br /><br />
