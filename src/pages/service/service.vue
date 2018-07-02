@@ -37,7 +37,7 @@
         <div class="result" v-for="item of industryResult">
           <h3>{{item.value | formatEnums(industryOptions) || '其他'}}</h3>
           <div class="row">
-            <div class="col-xs-2" v-for="cItem of item.result">{{cItem.name}}</div>
+            <div class="col-sm-2 col-xs-6" v-for="cItem of item.result">{{cItem.name}}</div>
           </div>
         </div>
         <div v-if="!industryResult.length" class="no-result">没有查询结果</div>

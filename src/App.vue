@@ -3,7 +3,7 @@
     <op-nav></op-nav>
     <op-header v-if="!isIndexPage"></op-header>
     <router-view/>
-    <op-footer v-if="!isIndexPage"></op-footer>
+    <op-footer></op-footer>
   </div>
 </template>
 

@@ -1,7 +1,7 @@
 <template>
   <div class="wrapper index">
     <div class="video" v-if="isVideoShown">
-      <video src="http://oib.oss-cn-beijing.aliyuncs.com/web/bg.mp4" autoplay="autoplay" loop="loop" @click="isVideoShown = false"></video>
+      <video loop="loop" @click="isVideoShown = false"></video>
     </div>
     <!-- <video src="../../assets/video/bg.mp4" autoplay="autoplay" loop="loop"></video> -->
     <div class="main box-padding">
@@ -20,14 +20,22 @@
   </div>
 </template>
 <script type="text/ecmascript-6" lang="babel">
+  // mport $ from 'jquery';
   import hub from '../../utils/hub';
   
   export default {
     data() {
       return {
-        isVideoShown: true
+        isVideoShown: false
       };
     },
+    // mounted() {
+    //   // console.log($('video'));
+    //   // setInterval(() => {
+    //   //   $('video').attr('src', 'http://oib.oss-cn-beijing.aliyuncs.com/web/bg.mp4');
+    //   //   $('video')[0].play();
+    //   // }, 1000);
+    // },
     methods: {
       openNav() {
         hub.$emit('open-nav');

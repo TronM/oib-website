@@ -8,16 +8,19 @@
         </div>
         <div class="col-sm-4 col-xs-12  info">
           <h4>ADDRESS 地址</h4>
-          B4-3D，Bansongyuan Rd, <br>
-          Huangpu District, Shanghai, China<br>
-          Near by Power Station of Art<br>
-          中国上海半淞园路388号B4-3D栋<br>
-          毗邻上海当代艺术博物馆<br><br>
+          Room IA, Level 19, No. 668.<br>
+          Beijing East Road. <br>
+          Huangpu District, Shanghai. China.<br>
+          上海黄浦区<br>北京东路668号科技京城西楼19楼iA室<br><br>
           <h4>BUSINESS 商务联系</h4>
-          OIB总经办 金晶<br>
+          客户部<br>
+          金晶<br>
           +86 13817963363<br>
-          jessie.jin@oib-china.com<br>
-          官网 www.oib-china.com<br><br>
+          Jessie.jin@oib-china.com<br>
+
+          陈亚男<br>
+          +86 18616114594<br>
+          emily.chen@oib-china.com
         </div>
         <div class="col-sm-6 col-xs-12 map" id="map-shanghai"></div>
       </div>
@@ -45,7 +48,7 @@
           
           策略中心 商务助理 彭丽珍<br>
           +86 13560359426<br>
-          peng@oib-china.com<br>
+          peng@oib-china.com<br><br>
           
           <h4>JOBS 招聘</h4>
           招聘邮箱<br>
@@ -94,7 +97,7 @@
           map1.addControl(new BMap.MapTypeControl());   // 添加地图类型控件
           map1.setCurrentCity('上海');          // 设置地图显示的城市 此项是必须设置的
           const myGeo1 = new BMap.Geocoder();
-          myGeo1.getPoint('上海半淞园路388号B4-3D栋', (point) => {
+          myGeo1.getPoint('上海黄浦区北京东路668号科技京城西楼19楼iA室', (point) => {
             if (point) {
               map1.centerAndZoom(point, 16);
               map1.addOverlay(new BMap.Marker(point));

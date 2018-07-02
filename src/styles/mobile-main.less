@@ -154,6 +154,7 @@ html, body {
         margin-bottom: 20px;
         a {
             color: #fff;
+            font-size: 16px;
       
             &:hover {
               text-decoration: underline;
@@ -171,7 +172,7 @@ html, body {
 
     .email {
         color: #FFF;
-        font-size: 16px;
+        font-size: 14px;
     }
 
     .line {
@@ -193,6 +194,22 @@ html, body {
                 width: 30px;
             }
         }
+
+        a {
+            position: relative;
+          }
+        
+          .qr {
+            position: absolute;
+            width: 100vw;
+            height: 100px;
+            top: -160px;
+            left: 0px;
+      
+            img {
+              width: 30%;
+            }
+          }
     }
 
     .copyright {
@@ -251,6 +268,22 @@ html, body {
         li { 
             display: inline-block; 
             margin-right: 16px;
+        }
+
+        a {
+            position: relative;
+      
+            &:hover .qr {
+              display: block;
+            }
+          }
+      
+        .qr {
+            position: absolute;
+            width: 100px;
+            top: -130px;
+            left: -45px;
+            display: none;
         }
     }
 
@@ -682,7 +715,8 @@ html, body {
                 height: 50px;
                 line-height: 50px;
                 color: @main-color;
-                width: 33.3333333%;
+                // width: 33.3333333%;
+                width: 100%;
                 font-size: 18px;
                 text-align: center;
                 border-bottom: 1px solid @main-color;
@@ -829,6 +863,7 @@ html, body {
 
         .result-other {
             min-height: 800px;
+            padding-bottom: 30px;
             //display: none;
             
             .result {
