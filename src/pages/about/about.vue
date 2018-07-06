@@ -8,22 +8,23 @@
       <div class="col-sm-3 col-xs-6 item">
         <h4>ESTABLISHED</h4>
         <span>2013</span>
-        <a href="">Find and join us</a>
+        <router-link to="contact">Find and join us</router-link>
       </div>
       <div class="col-sm-3 col-xs-6 item">
         <h4>PROJECTS</h4>
         <span>200 +</span>
-        <a href="">Explore our work</a>
+        <router-link to="works">Explore our work</router-link>
+        <a href=""></a>
       </div>
       <div class="col-sm-3 col-xs-6 item">
         <h4>BRANDS</h4>
         <span>100 +</span>
-        <a href="">Search our clients</a>
+        <router-link to="service">Search our clients</router-link>
       </div>
       <div class="col-sm-3 col-xs-6 item">
         <h4>INCOME</h4>
         <span>200Billion +</span>
-        <a href="">Contact us</a>
+        <router-link to="contact">Contact us</router-link>
       </div>
       <div class="col-xs-12 logo"><img src="../../assets/img/about/logo.png" alt="" v-show="!isPC"></div>
     </div>

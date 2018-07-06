@@ -128,7 +128,7 @@ html, body {
 // ------------------------------------footer-----------------------------------------
 
 .footer {
-  height: 330px;
+  height: 390px;
   background-color: @main-color;
 
   h3 {
@@ -171,20 +171,8 @@ html, body {
       margin-left: 10px;
     }
 
-    a {
-      position: relative;
-    }
-  
-    .qr {
-      position: absolute;
-      width: 500px;
-      height: 100px;
-      top: -180px;
-      right: 0px;
-
-      img {
-        width: 150px;
-      }
+    img {
+      width: 120px;
     }
   }
 
@@ -237,27 +225,19 @@ html, body {
   ul.share {
     position: absolute;
     bottom: 50px;
-    padding-left: @padding-left;
+    // width: 100%;
+    display: flex;
 
-    li {
-      display: inline-block;
-      margin-right: 16px;
-    }
+    li { 
+        box-sizing: border-box;
+        display: inline-block; 
+        // width: 30%;
+        // padding: 0 10px;
+        flex-grow: 1;
 
-    a {
-      position: relative;
-
-      &:hover .qr {
-        display: block;
-      }
-    }
-
-    .qr {
-      position: absolute;
-      width: 100px;
-      top: -130px;
-      left: -45px;
-      display: none;
+        img {
+            width: 100%;
+        }
     }
   }
 

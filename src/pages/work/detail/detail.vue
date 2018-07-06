@@ -13,7 +13,7 @@
           <!-- <div class="date"><span>{{ $t('pages.public.time') }}</span>{{work.createdAt | dateFormat}}</div> -->
           <div style="margin-bottom: 80px;" v-html="$t('work.detail.contentHTML')"></div>
 
-          <div class="row">
+          <!-- <div class="row">
             <div class="col-sm-6 col-xs-12">
               <h4>SERVICE</h4>
               <br>
@@ -27,7 +27,7 @@
                 <span>{{ item.name }}</span>
               </div>
             </div>
-          </div>
+          </div> -->
         </div>
       </div>
     </div>
