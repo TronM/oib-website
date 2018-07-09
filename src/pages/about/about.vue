@@ -26,7 +26,7 @@
         <span>200Billion +</span>
         <router-link to="contact">Contact us</router-link>
       </div>
-      <div class="col-xs-12 logo"><img src="../../assets/img/about/logo.png" alt="" v-show="!isPC"></div>
+      <!-- <div class="col-xs-12 logo"><img src="../../assets/img/about/logo.png" alt="" v-show="!isPC"></div> -->
     </div>
 
     <ul class="list">
