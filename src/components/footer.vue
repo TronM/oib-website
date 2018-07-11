@@ -24,10 +24,10 @@
     </div>
     <div class="col-xs-12 line">
       <div class="col-sm-6 col-xs-12 copyright">Copyright ©2017 www.oib-china.com . All Rights Reserved 沪ICP备14026675号</div>
-      <ul class="col-sm-6 col-xs-12 share">
-        <li><img src="../assets/img/main/1.png" alt=""></li>
-        <li><img src="../assets/img/main/2.png" alt=""></li>
-        <li><img src="../assets/img/main/3.png" alt=""></li>
+      <ul class="col-sm-4  col-sm-offset-2 col-xs-12 share">
+        <li><img src="../assets/img/main/1.png" alt=""><br>OIB公众号</li>
+        <li><img src="../assets/img/main/2.png" alt=""><br>美妆超级产品经理</li>
+        <li><img src="../assets/img/main/3.png" alt=""><br>人人做美妆</li>
         <!--<li><a href=""><img src="../assets/img/icon/be-white.png" alt=""></a></li>-->
       </ul>
     </div>
@@ -56,6 +56,7 @@
   padding-left: 25px;
   line-height: 30px;
   display: inline-block;
+  background-size: 18px 18px;
 }
 
 .icon-home {

@@ -10,9 +10,9 @@
       <li><a href="#"><img src="../assets/img/icon/1.png" alt=""><img src="../assets/img/main/1.png" class="qr" alt=""></a></li>
       <li><a href="#"><img src="../assets/img/icon/2.png" alt=""><img src="../assets/img/main/2.png" class="qr" alt=""></a></li>
       <li><a href="#"><img src="../assets/img/icon/3.png" alt=""><img src="../assets/img/main/3.png" class="qr" alt=""></a></li> -->
-      <li><img src="../assets/img/main/1.png" class="qr" alt=""></li>
-      <li><img src="../assets/img/main/2.png" class="qr" alt=""></li>
-      <li><img src="../assets/img/main/3.png" class="qr" alt=""></li>
+      <li><img src="../assets/img/main/1.png" class="qr" alt=""><br>OIB公众号</li>
+      <li><img src="../assets/img/main/2.png" class="qr" alt=""><br>美妆超级产品经理</li>
+      <li><img src="../assets/img/main/3.png" class="qr" alt=""><br>人人做美妆</li>
     </ul>
     <div class="copyright">©2015 沪ICP备14026675号-1</div>
   </div>
