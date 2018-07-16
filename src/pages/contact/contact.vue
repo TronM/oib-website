@@ -26,6 +26,19 @@
       </div>
       <div class="row">
         <div class="col-sm-2 col-xs-12 side-column">
+          <h3>Global Creative Hub.<span>CHINA</span></h3>
+          <h4>国际创意资源</h4>
+        </div>
+        <div class="col-sm-4 col-xs-12 info">
+          <h4>INTERNATIONAL BUSINESS</h4>
+          Sasha Xiashan Wen<br>
+          温夏莎<br>
+          +86 150-2690-5606<br>
+          sasha.wen@oib-china.com<br>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-sm-2 col-xs-12 side-column">
           <h3><span>GUANGZHOU.CHINA</span></h3>
           <h4>中国·广州 分部</h4>
         </div>
